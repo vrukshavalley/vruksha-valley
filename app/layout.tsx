@@ -1,35 +1,42 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import type { Metadata } from "next";
+
+import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 
-// Setup Inter for clean body text
-const inter = Inter({ 
+const playfair = Playfair_Display({ 
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: 'swap',
+  variable: '--font-playfair',
 });
 
-// Setup Playfair Display for luxury headings
-const playfair = Playfair_Display({
+const lato = Lato({ 
   subsets: ["latin"],
-  variable: "--font-playfair",
-  display: 'swap',
+  weight: ["300", "400", "700"],
+  variable: '--font-lato',
 });
 
-export const metadata = {
-  title: "Vruksha Valley Resort | A Place to Pause",
-  description: "Luxury nature resort in Kalasa, Chikmagalur.",
+export const metadata: Metadata = {
+
+  title: "Vruksha Valley | Best Resort in Kalasa, Chikmagalur",
+  
+  description: "Escape to Vruksha Valley, a luxury coffee plantation resort in Kalasa. Experience private cottages, nature treks near Soormane Falls, and authentic Malnad hospitality.",
+  
+  icons: {
+    icon: '/icon.png', 
+  },
+  
+  keywords: ["Resort in Kalasa", "Homestay in Chikmagalur", "Vruksha Valley", "Plantation Stay", "Soormane Falls Stay", "Malnad Cuisine"],
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        {children}
-      </body>
+  
+    <html lang="en" className="scroll-smooth">
+    
+      <body className={lato.className}>{children}</body>
     </html>
   );
 }

@@ -1,46 +1,63 @@
-"use client";
-import React from "react";
-import { TreePine, Coffee, Flame, Map, Wind, Waves } from "lucide-react";
+import React from 'react';
+import { Trees, Waves, Flame, Coffee, Map, Wind } from 'lucide-react';
 
-// This list now stores the "Component" itself, not a rendered tag
-const amenityList = [
-  { icon: TreePine, title: "Estate Walk", desc: "Guided tours through our lush coffee plantations." },
-  { icon: Waves, title: "Soormane Falls", desc: "Just 800m away. Experience the roar of nature." },
-  { icon: Flame, title: "Campfire", desc: "Warm evenings under the starlit Kalasa sky." },
-  { icon: Coffee, title: "Malnad Cuisine", desc: "Authentic local flavors served fresh daily." },
-  { icon: Map, title: "Guided Trek", desc: "Explore the hidden trails of the Western Ghats." },
-  { icon: Wind, title: "Pure Serenity", desc: "Zero noise pollution. Only the sound of the wild." },
-];
-
-export default function Amenities() {
+const Amenities = () => {
   return (
-    <section className="py-24 bg-white px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-gold-500 text-xs uppercase tracking-[0.4em] mb-4 block">Our Offerings</span>
-          <h2 className="text-4xl font-serif text-emerald-950">Curated Experiences</h2>
+    <section className="py-24 bg-[#F8F5F0] text-[#0A2F1F]">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        
+        <h2 className="text-3xl md:text-5xl font-serif tracking-wide border-b-2 border-[#D4AF37] inline-block pb-4 text-[#0A2F1F] mb-16">
+          Beyond The Stay
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-16">
+           <div className="space-y-4 flex flex-col items-center">
+            <Trees className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Estate Walk</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Guided tours through our lush coffee plantations.
+            </p>
+          </div>
+           <div className="space-y-4 flex flex-col items-center">
+            <Waves className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Soormane Falls</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Just 800m away. Experience the roar of nature.
+            </p>
+          </div>
+           <div className="space-y-4 flex flex-col items-center">
+            <Flame className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Campfire</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Warm evenings under the starlit Kalasa sky.
+            </p>
+          </div>
+           <div className="space-y-4 flex flex-col items-center">
+            <Coffee className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Malnad Cuisine</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Authentic local flavors served fresh daily.
+            </p>
+          </div>
+           <div className="space-y-4 flex flex-col items-center">
+            <Map className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Guided Trek</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Explore the hidden trails of the Western Ghats.
+            </p>
+          </div>
+           <div className="space-y-4 flex flex-col items-center">
+            <Wind className="w-12 h-12 text-[#D4AF37] stroke-[1px]" />
+            <h3 className="text-xl font-serif font-bold text-[#0A2F1F]">Pure Serenity</h3>
+            <p className="text-[#0A2F1F]/80 text-sm leading-relaxed max-w-xs">
+              Zero noise pollution. Only the sound of the wild.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-12">
-          {amenityList.map((item, index) => {
-            // We pull the icon out as a Component variable (Capital 'I')
-            const IconComponent = item.icon;
-            
-            return (
-              <div key={index} className="flex flex-col items-center text-center group">
-                <div className="text-gold-500 mb-6 transition-transform duration-500 group-hover:scale-110">
-                  {/* Now we just render it like a normal tag! No more cloneElement errors. */}
-                  <IconComponent size={40} strokeWidth={1} />
-                </div>
-                <h3 className="text-emerald-950 font-serif text-xl mb-3">{item.title}</h3>
-                <p className="text-gray-500 text-sm font-light leading-relaxed max-w-[200px]">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Amenities;

@@ -1,45 +1,67 @@
 "use client";
-import { useState, useEffect } from "react";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const whatsappNumber = "918217764481";
+  const message = encodeURIComponent("Hello, I am interested in booking a stay at Vruksha Valley. Could you please share the details?");
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
-      // Changed from bg-white to our new deep emerald color
-      isScrolled ? "bg-emerald-950/95 backdrop-blur-md py-4 shadow-xl" : "bg-transparent py-8"
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-[#0A2F1F] shadow-xl py-4" : "bg-transparent py-6"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="relative h-12 w-48 transition-all duration-500">
+        
+        <Link href="/" className="flex items-center gap-3 group">
           <img 
             src="/logo.png" 
-            alt="Vruksha Valley Logo"
-            className="h-full w-auto object-contain"
+            alt="Vruksha Valley" 
+            className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
           />
         </Link>
 
-        <div className={`hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-medium ${
-          isScrolled ? "text-cream-100/90" : "text-white"
-        }`}>
-          <Link href="#cottages" className="hover:text-gold-500 transition">Cottages</Link>
-          <Link href="#experience" className="hover:text-gold-500 transition">Experience</Link>
-          <Link href="#gallery" className="hover:text-gold-500 transition">Gallery</Link>
+        <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
+          <Link href="/" className="hover:text-[#D4AF37] transition-colors duration-300">
+            Home
+          </Link>
+          <Link href="#about" className="hover:text-[#D4AF37] transition-colors duration-300">
+            About
+          </Link>
+          <Link href="#gallery" className="hover:text-[#D4AF37] transition-colors duration-300">
+            Gallery
+          </Link>
+          <Link href="#contact" className="hover:text-[#D4AF37] transition-colors duration-300">
+            Contact Us
+          </Link>
         </div>
 
-        <button className={`px-8 py-3 text-[10px] uppercase tracking-widest transition-all duration-500 rounded-sm border ${
-          isScrolled 
-          ? "border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-emerald-950" 
-          : "border-white text-white hover:bg-white hover:text-emerald-950"
-        }`}>
+        <a 
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`
+            px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold font-serif border transition-all duration-300 cursor-pointer
+            ${isScrolled 
+              ? "bg-[#D4AF37] text-[#051610] border-[#D4AF37] hover:bg-white hover:text-[#051610] hover:border-white" 
+              : "bg-transparent text-white border-white hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#051610]"
+            }
+        `}>
           Book Now
-        </button>
+        </a>
       </div>
     </nav>
   );

@@ -1,57 +1,121 @@
 "use client";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-emerald-950 text-cream-100/90 py-20 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer id="contact" className="bg-[#051610] text-white border-t border-[#D4AF37]/20 pt-20 pb-10 font-serif">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         
-        {/* Brand Identity */}
-        <div className="md:col-span-2">
-          <img src="/logo.png" alt="Vruksha Valley" className="h-12 mb-6" />
-          <p className="font-serif text-xl text-white mb-4 max-w-sm">
+        <div className="space-y-6">
+          <img src="/logo.png" alt="Vruksha Valley" className="h-12" />
+          <p className="text-white/80 leading-relaxed">
             A place to pause and remember what matters the most.
           </p>
-          <div className="flex space-x-6 mt-8">
-            <Link href="#" className="hover:text-gold-500 transition"><Instagram size={20}/></Link>
-            <Link href="#" className="hover:text-gold-500 transition"><Facebook size={20}/></Link>
+          
+          <div className="flex space-x-5">
+            <a 
+              href="https://www.instagram.com/vrukshavalley/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-[#D4AF37] transition-colors"
+              aria-label="Visit Instagram"
+            >
+              <Instagram size={20}/>
+            </a>
+            
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-[#D4AF37] transition-colors"
+              aria-label="Visit Facebook"
+            >
+              <Facebook size={20}/>
+            </a>
+
+            <a 
+              href="https://youtube.com/@vrukshavalley" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-[#D4AF37] transition-colors"
+              aria-label="Visit YouTube"
+            >
+              <Youtube size={20}/>
+            </a>
           </div>
         </div>
 
-        {/* Quick Links */}
         <div>
-          <h4 className="text-gold-500 uppercase tracking-widest text-xs mb-6">Explore</h4>
-          <ul className="space-y-4 text-sm font-light">
-            <li><Link href="#cottages" className="hover:text-white">The Cottages</Link></li>
-            <li><Link href="#experience" className="hover:text-white">Experiences</Link></li>
-            <li><Link href="#gallery" className="hover:text-white">Gallery</Link></li>
-            <li><Link href="#" className="hover:text-white">Sustainability</Link></li>
+          <h4 className="text-[#D4AF37] uppercase tracking-widest text-xs mb-8 font-bold">Explore</h4>
+          <ul className="space-y-4 text-sm text-white/80">
+            <li><Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
+            <li><Link href="#about" className="hover:text-[#D4AF37] transition-colors">About</Link></li>
+            <li><Link href="#gallery" className="hover:text-[#D4AF37] transition-colors">Gallery</Link></li>
+            <li><Link href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link></li>
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div>
-          <h4 className="text-gold-500 uppercase tracking-widest text-xs mb-6">Contact</h4>
-          <ul className="space-y-4 text-sm font-light">
-            <li className="flex items-center gap-3">
-              <Phone size={16} className="text-gold-500" /> +91 XXXXX XXXXX
+          <h4 className="text-[#D4AF37] uppercase tracking-widest text-xs mb-8 font-bold">Contact</h4>
+          <ul className="space-y-4 text-sm text-white/80">
+            <li className="flex items-start gap-3">
+              <Phone size={16} className="text-[#D4AF37] mt-1 shrink-0" /> 
+              <span>+91 82177 64481<br/>+91 63643 64481</span>
             </li>
             <li className="flex items-center gap-3">
-              <Mail size={16} className="text-gold-500" /> stay@vrukshavalley.com
+              <Mail size={16} className="text-[#D4AF37] shrink-0" /> 
+              <a href="mailto:vrukshavalley@gmail.com" className="hover:text-[#D4AF37]">vrukshavalley@gmail.com</a>
             </li>
             <li className="flex items-start gap-3 leading-relaxed">
-              <MapPin size={16} className="text-gold-500 mt-1 shrink-0" /> 
-              Kalasa, Chikmagalur,<br />Karnataka, India
+              <MapPin size={16} className="text-[#D4AF37] mt-1 shrink-0" /> 
+              <span>Soormane Falls Road,<br/>Guddemakki, Kalasa,<br/>Karnataka - 577124</span>
             </li>
           </ul>
         </div>
+
+        <div>
+          <h4 className="text-[#D4AF37] uppercase tracking-widest text-xs mb-8 font-bold">Locate Us</h4>
+          
+          <div className="w-full h-40 rounded-lg overflow-hidden border border-[#D4AF37]/30 bg-white/5 relative group">
+             <iframe 
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.695842880183!2d75.38531737508226!3d13.244464987096417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbca9525652598b%3A0x1d33fa62d792d25d!2sVruksha%20Valley!5e0!3m2!1sen!2sin!4v1705177000000!5m2!1sen!2sin"
+               width="100%" 
+               height="100%" 
+               style={{border:0}} 
+               allowFullScreen 
+               loading="lazy"
+               className="grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
+               title="Vruksha Valley Location"
+             ></iframe>
+             
+             <a 
+               href="https://www.google.com/maps/search/?api=1&query=Vruksha+Valley+Resort+Kalasa"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+             >
+                <span className="text-white text-xs font-bold uppercase tracking-widest border border-white px-3 py-1">View Map</span>
+             </a>
+          </div>
+
+          <p className="text-[10px] text-white/50 mt-3 text-right">
+            <a 
+              href="https://www.google.com/maps/dir//Vruksha+Valley,+Soormane+Fls+Rd,+Guddemakki,+Kalasa,+Karnataka+577124" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-[#D4AF37] transition-colors flex items-center justify-end gap-1"
+            >
+              Get Directions →
+            </a>
+          </p>
+        </div>
+
       </div>
 
-      {/* Bottom Credit Line */}
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest opacity-50">
-        <p>© 2026 Vruksha Valley Resort. All Rights Reserved.</p>
-        <p>Crafted by your Digital Partner</p>
+      <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest opacity-50">
+        <p>© 2025 Vruksha Valley Resort. All Rights Reserved.</p>
+        <p>Crafted by Vivin Pinto</p>
       </div>
     </footer>
   );

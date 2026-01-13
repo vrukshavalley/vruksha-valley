@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 
-// This tells the component what data to expect
 interface RoomProps {
   name: string;
   type: string;
@@ -17,7 +16,6 @@ export default function RoomCard({ name, type, image, description }: RoomProps) 
       transition={{ duration: 0.8 }}
       className="group cursor-pointer"
     >
-      {/* Image Container */}
       <div className="relative h-[450px] overflow-hidden rounded-sm">
         <img 
           src={image} 
@@ -26,14 +24,12 @@ export default function RoomCard({ name, type, image, description }: RoomProps) 
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
         
-        {/* Bottom Text Overlay */}
         <div className="absolute bottom-8 left-8 text-white">
           <p className="text-xs uppercase tracking-[0.3em] mb-2 opacity-80">{type}</p>
           <h3 className="text-3xl font-serif tracking-wide">{name}</h3>
         </div>
       </div>
       
-      {/* Description below image */}
       <div className="mt-6">
         <p className="text-gray-500 text-sm leading-relaxed font-light max-w-xs">
           {description}

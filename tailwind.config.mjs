@@ -11,10 +11,19 @@ export default {
       serif: ['var(--font-playfair)', 'serif'],
     },
     colors: {
-      emerald: { 950: '#0A2F1F' },
-      gold: { 500: '#D4AF37' },
-      cream: { 100: '#F8F5F0' }
-        }
+  dark: {
+    950: '#051610',
+  },
+  emerald: { 
+    950: '#0A2F1F',
+  },
+  gold: { 
+    500: '#D4AF37',
+  },
+  cream: { 
+    100: '#F8F5F0',
+  }
+},
       },
     },
   plugins: [],
