@@ -12,6 +12,9 @@ export const metadata = {
     "Chikmagalur Luxury Resort",
     "Soormane Falls stay"
   ],
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
