@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Vruksha Valley Resort",
-  description: "Luxury Stay in the lap of nature",
+export const metadata = {
+  title: "Vruksha Valley | Best Resort in Kalasa near Hornadu & Kyatanamakki",
+  description: "Experience Vruksha Valley, the premier luxury resort in Kalasa, Chikmagalur. Ideally located for Hornadu pilgrims, Netravati trekkers, and Kyatanamakki Jeep safari lovers. Just 800m from Soormane Falls. Book your nature retreat today!",
+  keywords: [
+    "Resort in Kalasa", 
+    "Stay near Hornadu Temple", 
+    "Netravati Peak Trek stay", 
+    "Kyatanamakki Jeep Safari", 
+    "Chikmagalur Luxury Resort",
+    "Soormane Falls stay"
+  ],
 };
 
 export default function RootLayout({
