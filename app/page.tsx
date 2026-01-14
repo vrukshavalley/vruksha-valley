@@ -3,6 +3,7 @@ import RoomCard from "@/components/RoomCard";
 import Amenities from "@/components/Amenities";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import Link from 'next/link';
 
 export default function Home() {
   const cottages = [
@@ -79,13 +80,25 @@ export default function Home() {
   </div>
 </section>
 
-<section id="cottages" className="py-24 bg-[#0A2F1F] text-[#F8F5F0]">
+<section id="cottages" className="py-12 bg-[#0A2F1F] text-[#F8F5F0]">
   <div className="max-w-7xl mx-auto px-6">
     
-<div className="text-center mb-16">
-  <h2 className="text-3xl md:text-5xl font-serif border-b-2 border-[#D4AF37] inline-block pb-4 text-white tracking-wide">
+<div style={{ textAlign: "center", marginBottom: "50px" }}>
+  <h2 style={{ 
+    fontSize: "3.5rem", 
+    color: "#FDFBF7",
+    fontWeight: "400",
+    marginBottom: "15px",
+    fontFamily: "'Playfair Display', serif" 
+  }}>
     The Living Spaces
   </h2>
+  <div style={{ 
+    width: "80px", 
+    height: "2px", 
+    backgroundColor: "#C5A059",
+    margin: "0 auto" 
+  }}></div>
 </div>
     
     <div className="grid md:grid-cols-3 gap-8">

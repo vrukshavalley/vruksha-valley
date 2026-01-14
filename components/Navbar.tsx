@@ -41,14 +41,13 @@ export default function Navbar() {
           <Link href="#about" className="hover:text-[#D4AF37] transition-colors duration-300">
             About
           </Link>
-          <Link href="#gallery" className="hover:text-[#D4AF37] transition-colors duration-300">
-            Gallery
-          </Link>
+<Link href="/gallery" className="hover:text-[#D4AF37] transition-colors duration-300">
+    Gallery
+</Link>
           <Link href="#contact" className="hover:text-[#D4AF37] transition-colors duration-300">
             Contact Us
           </Link>
         </div>
-
         <a 
           href={whatsappLink}
           target="_blank"

@@ -56,12 +56,28 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-[#0A2F1F] text-[#F8F5F0] overflow-hidden">
+    <section className="py-12 bg-[#0A2F1F] text-[#F8F5F0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#F8F5F0] border-b-2 border-[#D4AF37] inline-block pb-4 tracking-wide">
-            Guest Stories
+          <h2 className="text-4xl md:text-5xl font-serif text-[#F8F5F0] border-[#D4AF37] inline-block pb-4 tracking-wide">
+            <div style={{ textAlign: "center", marginBottom: "0px" }}>
+  <h2 style={{ 
+    fontSize: "3.5rem", 
+    color: "#FDFBF7",
+    fontWeight: "400",
+    marginBottom: "15px",
+    fontFamily: "'Playfair Display', serif" 
+  }}>
+    Guest Stories
+  </h2>
+  <div style={{ 
+    width: "80px", 
+    height: "2px", 
+    backgroundColor: "#C5A059",
+    margin: "0 auto" 
+  }}></div>
+</div>
           </h2>
         </div>
 
