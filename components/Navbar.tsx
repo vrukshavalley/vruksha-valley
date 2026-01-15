@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Instagram, Facebook, Phone } from "lucide-react";
@@ -32,13 +33,28 @@ export default function Navbar() {
           </button>
 
           <Link href="/" className="hidden md:block">
-            <img src="/logo.png" alt="Vruksha Valley Logo" className="h-16" />
+            <Image 
+              src="/logo.png" 
+              alt="Vruksha Valley Luxury Resort Kalasa" 
+              width={150} 
+              height={64} 
+              priority 
+              className="h-16 w-auto"
+            />
           </Link>
         </div>
 
         <div className="flex-1 flex justify-center">
+
           <Link href="/" className="md:hidden">
-            <img src="/logo.png" alt="Vruksha Valley Logo" className="h-10" />
+            <Image 
+              src="/logo.png" 
+              alt="Vruksha Valley Logo" 
+              width={140} 
+              height={56} 
+              priority
+              className="h-14 w-auto" 
+            />
           </Link>
 
           <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
@@ -50,7 +66,8 @@ export default function Navbar() {
         </div>
 
         <div className="flex-1 md:flex-none flex justify-end">
-          <button className="px-4 py-2 md:px-8 md:py-3 text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all">
+
+          <button className="px-6 py-3 md:px-8 md:py-3 text-[11px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
             Book Now
           </button>
         </div>
@@ -64,7 +81,14 @@ export default function Navbar() {
           <button onClick={() => setIsMenuOpen(false)} className="text-[#F8F5F0]">
             <X size={32} />
           </button>
-          <img src="/logo.png" className="h-8 opacity-50" alt="" />
+
+          <Image 
+            src="/logo.png" 
+            alt="Vruksha Valley Logo"
+            width={100}
+            height={40}
+            className="h-10 w-auto opacity-50" 
+          />
           <div className="w-8"></div>
         </div>
 
@@ -77,7 +101,7 @@ export default function Navbar() {
 
         <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">
           <div className="flex justify-center space-x-8 mb-6">
-            <a href="https://www.instagram.com/vrukshavalley/" target="_blank"><Instagram className="text-[#C5A059]" size={24} /></a>
+            <a href="https://www.instagram.com/vrukshavalley/" target="_blank" rel="noopener noreferrer"><Instagram className="text-[#C5A059]" size={24} /></a>
             <a href="#"><Facebook className="text-[#C5A059]" size={24} /></a>
             <a href="tel:+918217764481"><Phone className="text-[#C5A059]" size={24} /></a>
           </div>
