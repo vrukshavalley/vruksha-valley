@@ -1,14 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Amenities from "@/components/Amenities";
 import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   const cottages = [
     { 
       name: "A-Frame Cottage", 
       type: "Signature Stay", 
-      img: "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?q=80&w=2070"
+      img: "https://images.unsplash.com/photo-1525113990974-2047cb9a1bb5?q=80&w=2070"
     },
     { 
       name: "Luxury Wood House", 
@@ -41,7 +40,6 @@ export default function Home() {
     <main className="relative min-h-screen bg-[#FDFBF7]">
       <Navbar />
       
-      {/* 1. HERO SECTION */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/50 z-10" /> 
@@ -63,7 +61,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. ADDED: ABOUT US SECTION */}
       <section id="about" className="py-16 md:py-24 bg-[#FDFBF7] text-[#0A2F1F]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -86,7 +83,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. THE LIVING SPACES */}
       <section id="cottages" className="py-12 md:py-20 bg-[#0A2F1F] text-[#FDFBF7]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -104,7 +100,6 @@ export default function Home() {
                   alt={cottage.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
-                {/* Fixed the dark gradient to match your brand emerald */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#051610] via-transparent to-transparent opacity-80"></div>
                 <div className="absolute bottom-6 left-6">
                   <h3 className="text-xl md:text-2xl font-serif text-white">{cottage.name}</h3>
@@ -118,7 +113,6 @@ export default function Home() {
 
       <Amenities />
       <Testimonials />
-      <Footer />
     </main>
   );
 }

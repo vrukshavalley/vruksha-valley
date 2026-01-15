@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Vruksha Valley | Best Resort in Kalasa near Hornadu & Kyatanamakki",
@@ -23,14 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body style={{ 
-        margin: 0, 
-        backgroundColor: "#FDFBF7",
-        color: "#064e3b",
-        fontFamily: "'Playfair Display', serif" 
-      }}>
-        {children}
+    <html lang="en" suppressHydrationWarning className="bg-[#FDFBF7]">
+      <body className={`${playfair.className} bg-[#FDFBF7] m-0 p-0 overflow-x-hidden`}>
+        <Navbar />
+        <main className="min-h-screen w-full">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

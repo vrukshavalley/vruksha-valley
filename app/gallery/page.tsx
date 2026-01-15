@@ -11,61 +11,34 @@ export default function GalleryPage() {
   ];
 
   return (
-    <main style={{ padding: "80px 20px", maxWidth: "1300px", margin: "0 auto" }}>
-      <header style={{ textAlign: "center", marginBottom: "70px" }}>
-        <h1 style={{ 
-          fontSize: "3.5rem", 
-          color: "#064e3b", 
-          fontWeight: "400", 
-          marginBottom: "15px" 
-        }}>
-          Our Gallery
-        </h1>
-        <div style={{ width: "80px", height: "2px", backgroundColor: "#059669", margin: "0 auto" }}></div>
-      </header>
-      
-      <div style={{ 
-        display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))", 
-        gap: "40px" 
-      }}>
-        {categories.map((cat, index) => (
-          <div key={index} style={{ 
-            position: "relative", 
-            height: "450px", 
-            borderRadius: "4px",
-            overflow: "hidden",
-            boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
-          }}>
-            <img 
-              src={`https://loremflickr.com/800/1000/${cat.keyword}?random=${index}`} 
-              alt={cat.title}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
-            />
-            
-            <div style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, rgba(6, 78, 59, 0.85), transparent)", 
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}>
-              <h2 style={{ 
-                color: "#FDFBF7",
-                fontSize: "1.5rem", 
-                letterSpacing: "4px",
-                textTransform: "uppercase",
-                fontWeight: "300",
-                borderBottom: "1px solid rgba(253, 251, 247, 0.3)",
-                paddingBottom: "10px"
-              }}>
-                {cat.title}
-              </h2>
+    <section className="bg-[#FDFBF7] pt-32 pb-20 w-full min-h-screen">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl text-[#0A2F1F] font-serif font-normal mb-4">
+            Our Gallery
+          </h1>
+          <div className="w-20 h-[2px] bg-[#C5A059] mx-auto"></div>
+        </header>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((cat, index) => (
+            <div key={index} className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-sm group">
+              <img 
+                src={`https://loremflickr.com/800/1000/${cat.keyword}?random=${index}`} 
+                alt={cat.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1F]/90 via-transparent to-transparent flex items-end justify-center pb-8">
+                <h2 className="text-[#FDFBF7] text-xl tracking-[4px] uppercase font-light border-b border-[#FDFBF7]/30 pb-2">
+                  {cat.title}
+                </h2>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
-    </main>
+    </section>
   );
 }

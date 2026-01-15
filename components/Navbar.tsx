@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -13,35 +15,49 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isSolid = isScrolled || isMenuOpen || pathname !== "/";
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled || isMenuOpen ? "bg-[#0A2F1F] py-4 shadow-xl" : "bg-transparent py-6"
+      isSolid ? "bg-[#0A2F1F] py-4 shadow-xl" : "bg-transparent py-6"
     }`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        <Link href="/" className="z-50">
-          <img src="/logo.png" alt="Vruksha Valley" className="h-10 md:h-16" />
-        </Link>
-
-        <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
-          <Link href="/" className="hover:text-[#D4AF37]">Home</Link>
-          <Link href="#about" className="hover:text-[#D4AF37]">About</Link>
-          <Link href="/gallery" className="hover:text-[#D4AF37]">Gallery</Link>
-          <Link href="#contact" className="hover:text-[#D4AF37]">Contact Us</Link>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <button className="px-4 py-2 md:px-8 md:py-3 text-[10px] uppercase tracking-[0.2em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all">
-            Book Now
-          </button>
-
-          <button className="md:hidden text-[#F8F5F0] z-50" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="flex-1 md:flex-none">
+          <button 
+            className="md:hidden text-[#F8F5F0] transition-colors hover:text-[#D4AF37]" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
+
+          <Link href="/" className="hidden md:block">
+            <img src="/logo.png" alt="Vruksha Valley Logo" className="h-16" />
+          </Link>
         </div>
+
+        <div className="flex-1 flex justify-center">
+          <Link href="/" className="md:hidden">
+            <img src="/logo.png" alt="Vruksha Valley Logo" className="h-10" />
+          </Link>
+
+          <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
+            <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
+            <Link href="#about" className="hover:text-[#D4AF37] transition-colors">About</Link>
+            <Link href="/gallery" className="hover:text-[#D4AF37] transition-colors">Gallery</Link>
+            <Link href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link>
+          </div>
+        </div>
+
+        <div className="flex-1 md:flex-none flex justify-end">
+          <button className="px-4 py-2 md:px-8 md:py-3 text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
+            Book Now
+          </button>
+        </div>
+
       </div>
 
-      <div className={`fixed inset-0 bg-[#0A2F1F] flex flex-col items-center justify-center transition-transform duration-500 md:hidden ${
+      <div className={`fixed inset-0 bg-[#0A2F1F] flex flex-col items-center justify-center transition-transform duration-500 ease-in-out md:hidden ${
         isMenuOpen ? "translate-y-0" : "-translate-y-full"
       }`}>
         <div className="flex flex-col space-y-8 text-center text-xl font-serif text-[#F8F5F0]">
