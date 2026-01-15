@@ -24,7 +24,7 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        <div className="flex-1 md:flex-none md:w-auto w-[80px] flex justify-start">
+        <div className="flex-1 md:flex-none flex justify-start items-center">
           <button 
             className="md:hidden text-[#F8F5F0] transition-transform active:scale-90" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -44,16 +44,15 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="flex-1 flex justify-center">
-
+        <div className="flex-1 flex justify-center items-center">
           <Link href="/" className="md:hidden">
             <Image 
               src="/logo.png" 
               alt="Vruksha Valley Logo" 
-              width={140} 
-              height={56} 
+              width={100} 
+              height={40} 
               priority
-              className="h-14 w-auto" 
+              className="h-10 w-auto"
             />
           </Link>
 
@@ -65,9 +64,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex-1 md:flex-none flex justify-end">
-
-          <button className="px-6 py-3 md:px-8 md:py-3 text-[11px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
+        <div className="flex-1 md:flex-none flex justify-end items-center">
+          <button className="px-4 py-2 md:px-8 md:py-3 text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
             Book Now
           </button>
         </div>
@@ -76,7 +74,6 @@ export default function Navbar() {
       <div className={`fixed inset-0 bg-[#0A2F1F] flex flex-col transition-all duration-500 ease-in-out md:hidden z-[105] ${
         isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       }`}>
-        
         <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
           <button onClick={() => setIsMenuOpen(false)} className="text-[#F8F5F0]">
             <X size={32} />
