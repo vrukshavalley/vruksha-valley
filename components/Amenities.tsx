@@ -1,19 +1,16 @@
 "use client";
 
 import React from 'react';
-import { Trees, Waves, Flame, Coffee, Map, Wind, Wifi, Thermometer, Car } from 'lucide-react';
+import { Trees, Waves, Flame, Coffee, Map, Wind } from 'lucide-react';
 
 const Amenities = () => {
   const amenitiesList = [
-    { icon: Trees, title: "Estate Walk", desc: "Guided tours through our lush coffee plantations." },
-    { icon: Waves, title: "Soormane Falls", desc: "Just 800m away. Experience the roar of nature." },
-    { icon: Flame, title: "Campfire", desc: "Warm evenings under the starlit Kalasa sky." },
-    { icon: Coffee, title: "Malnad Cuisine", desc: "Authentic local flavors served fresh daily." },
-    { icon: Map, title: "Guided Trek", desc: "Explore the hidden trails of the Western Ghats." },
     { icon: Wind, title: "Pure Serenity", desc: "Zero noise pollution. Only the sound of the wild." },
-    { icon: Wifi, title: "High-Speed Wi-Fi", desc: "Stay connected with the world, even in the heart of the valley." },
-    { icon: Thermometer, title: "24/7 Hot Water", desc: "Deep forest luxury with all the modern comforts." },
-    { icon: Car, title: "Secure Parking", desc: "Private, on-site parking for all our guests within the estate." }
+    { icon: Waves, title: "Soormane Falls", desc: "Just 800m away. Experience the roar of nature." },
+    { icon: Map, title: "Guided Trek", desc: "Explore the hidden trails of the Western Ghats." },
+    { icon: Trees, title: "Estate Walk", desc: "Guided tours through our lush coffee plantations." },
+    { icon: Coffee, title: "Malnad Cuisine", desc: "Authentic local flavors served fresh daily." },
+    { icon: Flame, title: "Campfire", desc: "Warm evenings under the starlit Kalasa sky." },
   ];
 
   return (

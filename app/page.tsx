@@ -7,7 +7,7 @@ export default function Home() {
     { 
       name: "A-Frame Cottage", 
       type: "Signature Stay", 
-      img: "https://images.unsplash.com/photo-1525113990974-2047cb9a1bb5?q=80&w=2070"
+      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070"
     },
     { 
       name: "Luxury Wood House", 
