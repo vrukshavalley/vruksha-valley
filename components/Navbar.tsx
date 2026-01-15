@@ -60,7 +60,7 @@ export default function Navbar() {
             <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
             <Link href="/about" className="hover:text-[#D4AF37] transition-colors">About</Link>
             <Link href="/gallery" className="hover:text-[#D4AF37] transition-colors">Gallery</Link>
-            <Link href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link>
+            <Link href="/contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link>
           </div>
         </div>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
           <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Home</Link>
           <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">About</Link>
           <Link href="/gallery" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Gallery</Link>
-          <Link href="#contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Contact Us</Link>
+          <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Contact Us</Link>
         </div>
 
         <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">
