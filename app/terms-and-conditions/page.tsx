@@ -1,17 +1,27 @@
-import React from 'react';
-
-export default function PrivacyPolicy() {
+export default function TermsConditions() {
   return (
-    <main style={{ padding: "60px 20px", maxWidth: "900px", margin: "0 auto", backgroundColor: "#FDFBF7", color: "#064e3b" }}>
-      <h1 style={{ fontSize: "2.5rem", marginBottom: "10px", fontFamily: "'Playfair Display', serif" }}>Privacy Policy</h1>
-      <div style={{ width: "60px", height: "2px", backgroundColor: "#059669", marginBottom: "40px" }}></div>
-      
-      <section style={{ lineHeight: "1.8", fontSize: "1.1rem" }}>
-        <p>Your privacy is important to us. This policy outlines how Vruksha Valley Resort collects and manages your data...</p>
-        <h3 style={{ marginTop: "30px" }}>1. Data Collection</h3>
-        <p>We collect information provided during booking to ensure a seamless stay in the Western Ghats.</p>
-        {/* Add rest of your specific policy text here */}
-      </section>
+    <main className="bg-[#FDFBF7] min-h-screen pt-32 pb-20 px-6">
+      <div className="max-w-4xl mx-auto font-serif text-[#0A2F1F]">
+        <h1 className="text-4xl md:text-6xl mb-8">Terms & Conditions</h1>
+        <div className="w-20 h-[2px] bg-[#C5A059] mb-12"></div>
+        
+        <div className="space-y-8 opacity-90 leading-relaxed text-lg italic">
+          <section>
+            <h2 className="text-2xl mb-4 font-bold not-italic">Check-in & Check-out</h2>
+            <p>Standard Check-in time is 12:00 PM and Check-out is 11:00 AM. Early check-in or late check-out is subject to availability and may incur additional charges.</p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl mb-4 font-bold not-italic">Guest Conduct</h2>
+            <p>Vruksha Valley is a nature retreat. We request guests to maintain the peace and avoid loud music after 10:00 PM. Any damage to estate property will be charged to the guest.</p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl mb-4 font-bold not-italic">Identification</h2>
+            <p>A valid government-issued ID (Aadhar, Passport, or Driving License) is mandatory for all guests at the time of check-in.</p>
+          </section>
+        </div>
+      </div>
     </main>
   );
 }

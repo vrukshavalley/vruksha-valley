@@ -60,12 +60,6 @@ export default function Navbar() {
         isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       }`}>
         
-        <img 
-          src="/logo.png" 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 opacity-[0.03] pointer-events-none rotate-12" 
-          alt="" 
-        />
-
         <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
           <button onClick={() => setIsMenuOpen(false)} className="text-[#F8F5F0]">
             <X size={32} />
@@ -83,12 +77,13 @@ export default function Navbar() {
 
         <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">
           <div className="flex justify-center space-x-8 mb-6">
-            <Instagram className="text-[#C5A059]" size={24} />
-            <Facebook className="text-[#C5A059]" size={24} />
-            <Phone className="text-[#C5A059]" size={24} />
+            <a href="https://www.instagram.com/vrukshavalley/" target="_blank"><Instagram className="text-[#C5A059]" size={24} /></a>
+            <a href="#"><Facebook className="text-[#C5A059]" size={24} /></a>
+            <a href="tel:+918217764481"><Phone className="text-[#C5A059]" size={24} /></a>
           </div>
-          <p className="text-center text-[10px] uppercase tracking-[0.3em] text-[#F8F5F0]/40">
-            Kalasa, Karnataka <br /> +91 82177 64481
+
+          <p className="text-center text-[10px] uppercase tracking-[0.3em] text-[#F8F5F0]/80">
+            Kalasa, Karnataka <br /> +91 82177 64481, +91 63643 64481
           </p>
         </div>
       </div>
