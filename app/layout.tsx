@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Hotel",
+    "@type": "Resort",
     "name": "Vruksha Valley",
     "description": "Luxury nature resort in Kalasa, Chikmagalur. Near Hornadu Temple and Soormane Falls.",
     "image": "https://vrukshavalley.com/logo.png",
