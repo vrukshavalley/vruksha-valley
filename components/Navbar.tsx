@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, Facebook, Phone } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,17 +18,17 @@ export default function Navbar() {
   const isSolid = isScrolled || isMenuOpen || pathname !== "/";
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
       isSolid ? "bg-[#0A2F1F] py-4 shadow-xl" : "bg-transparent py-6"
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        <div className="flex-1 md:flex-none">
+        <div className="flex-1 md:flex-none md:w-auto w-[80px] flex justify-start">
           <button 
-            className="md:hidden text-[#F8F5F0] transition-colors hover:text-[#D4AF37]" 
+            className="md:hidden text-[#F8F5F0] transition-transform active:scale-90" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            <Menu size={28} />
           </button>
 
           <Link href="/" className="hidden md:block">
@@ -43,28 +43,53 @@ export default function Navbar() {
 
           <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
             <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
-            <Link href="#about" className="hover:text-[#D4AF37] transition-colors">About</Link>
+            <Link href="/about" className="hover:text-[#D4AF37] transition-colors">About</Link>
             <Link href="/gallery" className="hover:text-[#D4AF37] transition-colors">Gallery</Link>
             <Link href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link>
           </div>
         </div>
 
         <div className="flex-1 md:flex-none flex justify-end">
-          <button className="px-4 py-2 md:px-8 md:py-3 text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
+          <button className="px-4 py-2 md:px-8 md:py-3 text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all">
             Book Now
           </button>
         </div>
-
       </div>
 
-      <div className={`fixed inset-0 bg-[#0A2F1F] flex flex-col items-center justify-center transition-transform duration-500 ease-in-out md:hidden ${
-        isMenuOpen ? "translate-y-0" : "-translate-y-full"
+      <div className={`fixed inset-0 bg-[#0A2F1F] flex flex-col transition-all duration-500 ease-in-out md:hidden z-[105] ${
+        isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       }`}>
-        <div className="flex flex-col space-y-8 text-center text-xl font-serif text-[#F8F5F0]">
-          <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link href="#about" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link href="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</Link>
-          <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+        
+        <img 
+          src="/logo.png" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 opacity-[0.03] pointer-events-none rotate-12" 
+          alt="" 
+        />
+
+        <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
+          <button onClick={() => setIsMenuOpen(false)} className="text-[#F8F5F0]">
+            <X size={32} />
+          </button>
+          <img src="/logo.png" className="h-8 opacity-50" alt="" />
+          <div className="w-8"></div>
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center space-y-8 relative z-10">
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Home</Link>
+          <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">About</Link>
+          <Link href="/gallery" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Gallery</Link>
+          <Link href="#contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Contact Us</Link>
+        </div>
+
+        <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">
+          <div className="flex justify-center space-x-8 mb-6">
+            <Instagram className="text-[#C5A059]" size={24} />
+            <Facebook className="text-[#C5A059]" size={24} />
+            <Phone className="text-[#C5A059]" size={24} />
+          </div>
+          <p className="text-center text-[10px] uppercase tracking-[0.3em] text-[#F8F5F0]/40">
+            Kalasa, Karnataka <br /> +91 82177 64481
+          </p>
         </div>
       </div>
     </nav>
