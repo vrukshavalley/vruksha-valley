@@ -23,7 +23,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-12 bg-[#0A2F1F] text-[#FDFBF7] overflow-hidden">
+    <section className="py-20 md:py-32 bg-[#0A2F1F] text-[#FDFBF7] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center mb-10 md:mb-16">
@@ -73,6 +73,18 @@ const Testimonials = () => {
               />
             ))}
           </div>
+
+          <div className="mt-16 text-center">
+  <a 
+    href="https://search.google.com/local/reviews?placeid=ChIJi1lSVntJuzsRXdKS12L6Mx0" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="inline-block px-10 py-4 border border-[#C5A059] text-[#C5A059] text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-[#C5A059] hover:text-[#0A2F1F] transition-all duration-500 rounded-sm"
+  >
+    Read Verified Reviews on Google
+  </a>
+</div>
+
         </div>
       </div>
     </section>

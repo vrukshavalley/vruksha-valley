@@ -1,16 +1,20 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function AboutPage() {
+  const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.";
+
   return (
     <main className="bg-[#FDFBF7] min-h-screen">
-
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#0A2F1F]/40 z-10" />
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             alt="Vruksha Valley Landscape"
+            priority
           />
         </div>
         <div className="relative z-20 text-center px-6">
@@ -42,11 +46,12 @@ export default function AboutPage() {
 
       <section className="pb-20 md:pb-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="aspect-[4/5] rounded-sm overflow-hidden shadow-2xl">
-            <img 
+          <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-2xl">
+            <Image 
               src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071" 
               alt="Nature at Vruksha Valley" 
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
           <div className="space-y-8">
@@ -59,7 +64,7 @@ export default function AboutPage() {
                 <span className="w-8 h-[1px] bg-[#C5A059]"></span> 800m from the majestic Soormane Falls.
               </li>
               <li className="flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-[#C5A059]"></span> Gateway to Netravati Peak & Kyatanamakki.
+                <span className="w-8 h-[1px] bg-[#C5A059]"></span> Gateway to Netravati Peak, Maidadi, Horanadu Annapoorneshwari Temple, Kudremukh & Kyatanamakki.
               </li>
               <li className="flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-[#C5A059]"></span> Authentic Malnad Cuisine & Coffee Estate tours.
@@ -75,9 +80,14 @@ export default function AboutPage() {
           <p className="opacity-80 text-lg font-serif italic">
             Your journey into the heart of the Western Ghats begins here.
           </p>
-          <button className="px-12 py-4 bg-[#C5A059] text-[#051610] uppercase tracking-widest font-bold font-serif hover:bg-white transition-all">
+          <a 
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-12 py-4 bg-[#C5A059] text-[#051610] uppercase tracking-widest font-bold font-serif hover:bg-white transition-all inline-block"
+          >
             Book Your Retreat
-          </button>
+          </a>
         </div>
       </section>
     </main>

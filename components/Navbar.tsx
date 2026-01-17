@@ -18,6 +18,9 @@ export default function Navbar() {
 
   const isSolid = isScrolled || isMenuOpen || pathname !== "/";
 
+  // Pre-filled WhatsApp message link
+  const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'm%20interested%20in%20booking%20a%20stay.%20Could%20you%20please%20share%20the%20availability%3F";
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
       isSolid ? "bg-[#0A2F1F] py-4 shadow-xl" : "bg-transparent py-6"
@@ -59,15 +62,21 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-12 text-[11px] uppercase tracking-[0.3em] font-serif font-bold text-[#F8F5F0]">
             <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
             <Link href="/about" className="hover:text-[#D4AF37] transition-colors">About</Link>
+            <Link href="/blog" className="hover:text-[#D4AF37] transition-colors">Journal</Link>
             <Link href="/gallery" className="hover:text-[#D4AF37] transition-colors">Gallery</Link>
             <Link href="/contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link>
           </div>
         </div>
 
         <div className="flex-1 md:flex-none flex justify-end items-center">
-          <button className="px-4 py-2 md:px-8 md:py-3 text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap">
+          <a 
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 md:px-8 md:py-3 text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold font-serif bg-[#D4AF37] text-[#051610] hover:bg-white transition-all whitespace-nowrap inline-block"
+          >
             Book Now
-          </button>
+          </a>
         </div>
       </div>
 
@@ -92,8 +101,15 @@ export default function Navbar() {
         <div className="flex-1 flex flex-col items-center justify-center space-y-8 relative z-10">
           <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Home</Link>
           <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">About</Link>
+          <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0]">Journal</Link>
           <Link href="/gallery" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Gallery</Link>
           <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Contact Us</Link>
+          <a 
+            href={whatsappUrl}
+            className="text-3xl font-serif text-[#D4AF37] border-b border-[#D4AF37]"
+          >
+            Book Now
+          </a>
         </div>
 
         <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">

@@ -1,38 +1,65 @@
 import Navbar from "@/components/Navbar";
 import Amenities from "@/components/Amenities";
 import Testimonials from "@/components/Testimonials";
+import RoomCarousel from "@/components/RoomCarousel";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const cottages = [
     { 
-      name: "A-Frame Cottage", 
-      type: "Signature Stay", 
-      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070"
+      name: "Parijatha", 
+      type: "Signature Cottage", 
+      images: [
+        "/rooms/vruksha-parijatha/vruksha-parijatha-1.webp",
+        "/rooms/vruksha-parijatha/vruksha-parijatha-2.webp",
+        "/rooms/vruksha-parijatha/vruksha-parijatha-3.webp"
+      ] 
     },
     { 
-      name: "Luxury Wood House", 
-      type: "Nature Immersion", 
-      img: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1000" 
-    },
-    { 
-      name: "Valley View Suite", 
-      type: "Scenic Retreat", 
-      img: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2070" 
-    },
-    { 
-      name: "Plantation Villa", 
+      name: "Prakruthi", 
       type: "Heritage Stay", 
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" 
+      images: [
+        "/rooms/vruksha-prakruthi/vruksha-prakruthi-1.webp",
+        "/rooms/vruksha-prakruthi/vruksha-prakruthi-2.webp",
+        "/rooms/vruksha-prakruthi/vruksha-prakruthi-3.webp",
+        "/rooms/vruksha-prakruthi/vruksha-prakruthi-4.webp",
+        "/rooms/vruksha-prakruthi/vruksha-prakruthi-5.webp",
+      ] 
     },
     { 
-      name: "Cloud Bed Cottage", 
-      type: "High Altitude", 
-      img: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=2070" 
+      name: "Myst Wood", 
+      type: "Forest Retreat", 
+      images: [
+        "/rooms/vruksha-mystwood/vruksha-mystwood-1.webp",
+        "/rooms/vruksha-mystwood/vruksha-mystwood-2.webp",
+        "/rooms/vruksha-mystwood/vruksha-mystwood-3.webp"
+      ] 
     },
     { 
-      name: "Family Estate House", 
+      name: "Kadamba", 
+      type: "Nature Immersion", 
+      images: [
+        "/rooms/vruksha-kadamba/vruksha-kadamba-1.webp",
+        "/rooms/vruksha-kadamba/vruksha-kadamba-2.webp"
+      ] 
+    },
+    { 
+      name: "Mouna", 
+      type: "Quiet Sanctuary", 
+      images: [
+        "/rooms/vruksha-mouna/vruksha-mouna-1.webp",
+        "/rooms/vruksha-mouna/vruksha-mouna-2.webp",
+        "/rooms/vruksha-mouna/vruksha-mouna-3.webp"
+      ] 
+    },
+    { 
+      name: "Dormitory", 
       type: "Group Getaway", 
-      img: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=2070"
+      images: [
+        "/rooms/vruksha-dormitory/vruksha-dormitory-1.webp",
+        "/rooms/vruksha-dormitory/vruksha-dormitory-2.webp"
+      ]
     }
   ];
 
@@ -42,11 +69,14 @@ export default function Home() {
       
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/50 z-10" /> 
-          <img 
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" 
-            className="w-full h-full object-cover"
-            alt="Hero Background"
+          <div className="absolute inset-0 bg-black/40 z-10" /> 
+          <Image 
+            src="/hero.webp" 
+            alt="Aerial view of Vruksha Valley Resort in Kalasa" 
+            fill 
+            priority
+            quality={95}
+            className="object-cover"
           />
         </div>
 
@@ -79,29 +109,34 @@ export default function Home() {
             <p>
               Located in the misty heights of Kalasa, our resort is more than a destination; it is a tribute to the ancient coffee estates and the quiet dignity of the mountains.
             </p>
+            {/* NEW BUTTON TO BLOG */}
+            <div className="pt-4">
+              <Link 
+                href="/blog" 
+                className="text-[#C5A059] text-xs uppercase tracking-[0.4em] font-bold border-b border-[#C5A059] pb-2 hover:text-[#0A2F1F] transition-colors"
+              >
+                Explore our Journal
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="cottages" className="py-12 md:py-20 bg-[#0A2F1F] text-[#FDFBF7]">
+      <section id="cottages" className="py-12 md:py-24 bg-[#0A2F1F] text-[#FDFBF7]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-6xl leading-tight font-serif mb-4">
               The Living Spaces
             </h2>
             <div className="w-20 h-[2px] bg-[#C5A059] mx-auto"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cottages.map((cottage, idx) => (
-              <div key={idx} className="group relative overflow-hidden aspect-[4/5]">
-                <img 
-                  src={cottage.img} 
-                  alt={cottage.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#051610] via-transparent to-transparent opacity-80"></div>
-                <div className="absolute bottom-6 left-6">
+              <div key={idx} className="group relative overflow-hidden bg-[#051610] rounded-sm shadow-2xl">
+                <RoomCarousel images={cottage.images} name={cottage.name} />
+                
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-[#051610] via-[#051610]/40 to-transparent pointer-events-none">
                   <h3 className="text-xl md:text-2xl font-serif text-white">{cottage.name}</h3>
                   <p className="text-[#C5A059] text-[10px] uppercase tracking-widest mt-1">{cottage.type}</p>
                 </div>
