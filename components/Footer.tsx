@@ -3,17 +3,15 @@ import Link from "next/link";
 import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function Footer() {
-  // Analysis Fix: Two distinct links for better UX
-  // 1. Explore Link: Opens the general place info and reviews
+
   const exploreUrl = "https://www.google.com/maps/search/?api=1&query=Vruksha+Valley+Resort+Kalasa";
-  // 2. Directions Link: Opens GPS navigation directly
+  
   const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Vruksha+Valley+Resort+Kalasa";
 
   return (
     <footer id="contact" className="bg-[#051610] text-white border-t border-[#C5A059]/20 pt-16 pb-10 font-serif">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         
-        {/* BRANDING */}
         <div className="space-y-6">
           <img src="/logo.png" alt="Vruksha Valley" className="h-12" />
           <p className="text-white/80 text-sm leading-relaxed">
@@ -33,7 +31,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* POLICIES */}
         <div>
           <h4 className="text-[#C5A059] uppercase tracking-widest text-xs mb-8 font-bold">Policies</h4>
           <ul className="space-y-4 text-sm text-white/80">
@@ -43,7 +40,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* CONTACT INFO */}
         <div>
           <h4 className="text-[#C5A059] uppercase tracking-widest text-xs mb-8 font-bold">Contact</h4>
           <ul className="space-y-4 text-sm text-white/80">
@@ -62,10 +58,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* LOCATE US - DISTINGUISHED ACTIONS */}
         <div>
           <h4 className="text-[#C5A059] uppercase tracking-widest text-xs mb-8 font-bold">Locate Us</h4>
-          {/* Action 1: Click the map image to "Explore" */}
           <div className="w-full h-40 rounded-lg overflow-hidden border border-[#C5A059]/30 bg-white/5 relative group">
              <iframe 
                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.204961555776!2d75.3712814!3d13.2422071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb3497b5652598b%3A0x1d33fa62d794d25d!2sVruksha+Valley!5e0!3m2!1sen!2sin!4v1705322400000!5m2!1sen!2sin"
@@ -78,7 +72,6 @@ export default function Footer() {
              </a>
           </div>
 
-          {/* Action 2: Click the link to "Get Directions" (GPS) */}
           <p className="mt-3 text-right">
             <a href={directionsUrl} target="_blank" rel="noopener noreferrer"
                className="text-[10px] uppercase tracking-widest text-[#FDFBF7] hover:text-[#C5A059] transition-all duration-300 flex items-center justify-end gap-1 font-bold">
