@@ -18,7 +18,6 @@ export default function Navbar() {
 
   const isSolid = isScrolled || isMenuOpen || pathname !== "/";
 
-  // Pre-filled WhatsApp message link
   const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'm%20interested%20in%20booking%20a%20stay.%20Could%20you%20please%20share%20the%20availability%3F";
 
   return (
@@ -104,12 +103,6 @@ export default function Navbar() {
           <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0]">Journal</Link>
           <Link href="/gallery" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Gallery</Link>
           <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-[#F8F5F0] hover:text-[#D4AF37]">Contact Us</Link>
-          <a 
-            href={whatsappUrl}
-            className="text-3xl font-serif text-[#D4AF37] border-b border-[#D4AF37]"
-          >
-            Book Now
-          </a>
         </div>
 
         <div className="p-10 border-t border-white/10 bg-black/20 relative z-10">

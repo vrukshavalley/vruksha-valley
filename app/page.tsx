@@ -109,7 +109,6 @@ export default function Home() {
             <p>
               Located in the misty heights of Kalasa, our resort is more than a destination; it is a tribute to the ancient coffee estates and the quiet dignity of the mountains.
             </p>
-            {/* NEW BUTTON TO BLOG */}
             <div className="pt-4">
               <Link 
                 href="/blog" 

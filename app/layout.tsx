@@ -8,14 +8,14 @@ import Footer from "@/components/Footer";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vruksha Valley | Best Resort in Kalasa near Hornadu & Kyatanamakki",
+  title: "Vruksha Valley | Best Luxury Resort in Kalasa, Chikmagalur",
   description: "Experience Vruksha Valley, the premier luxury resort in Kalasa, Chikmagalur. Ideally located for Hornadu pilgrims, Netravati trekkers, and Kyatanamakki Jeep safari lovers. Just 800m from Soormane Falls.",
   metadataBase: new URL('https://vrukshavalley.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Vruksha Valley | Luxury Nature Stay in Kalasa",
+    title: "Vruksha Valley | Best Luxury Nature Stay in Kalasa, Chikmagalur",
     description: "Nestled in the coffee estates of Kalasa, Chikmagalur. Your gateway to Kyatanamakki and Hornadu.",
     url: 'https://vrukshavalley.com',
     siteName: 'Vruksha Valley',
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "Resort",
     "name": "Vruksha Valley",
-    "description": "Luxury nature resort in Kalasa, Chikmagalur. Near Hornadu Temple and Soormane Falls.",
+    "description": "Best Luxury nature resort in Kalasa, Chikmagalur. Near Hornadu Temple and Soormane Falls.",
     "image": "https://vrukshavalley.com/logo.png",
     "address": {
       "@type": "PostalAddress",
