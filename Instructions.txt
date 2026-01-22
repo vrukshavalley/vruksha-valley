@@ -1,0 +1,40 @@
+Vruksha Valley Website - Handover Instructions
+
+Project Overview
+
+* Name: Vruksha Valley Luxury Resort Website
+* Technology: Next.js 15, Tailwind CSS, Lucide Icons, Embla Carousel
+* Primary Colors: Deep Forest Green (`#0A2F1F`), Luxury Gold (`#C5A059`)
+
+1. How to Set Up the Development Environment
+
+If you or a developer need to make changes to the code, follow these steps:
+
+1. Install Node.js: Download and install the latest LTS version from `nodejs.org`.
+2. Open in VS Code: Open this folder in Visual Studio Code.
+3. Install Dependencies: Open the terminal in VS Code (`Ctrl + ~`) and type:
+`npm install`
+(This restores the 'node_modules' folder using the package.json "shopping list")
+4. Run Local Preview: Type the following command to see the site on your computer:
+`npm run dev`
+(View at: http://localhost:3000)
+
+2. How to Update Content
+
+* Rooms/Cottages: To update images or descriptions, go to `app/page.tsx` and find the `cottages` array.
+* Journal (Blogs): To edit or add blog posts, go to `app/blog/[slug]/page.tsx` and update the `blogData` object. Ensure the `slug` in the list matches the URL.
+* Booking Link: To change from WhatsApp to a booking engine like StayFlexi, update the `whatsappUrl` variable in `components/Navbar.tsx` and `app/about/page.tsx`.
+
+3. Image Standards
+
+To maintain the high-end look of the site, use these standards for new photos:
+
+* Format: WebP
+* Room/Grid Photos: 2400px x 3000px (4:5 Vertical Aspect Ratio)
+* Hero/Cover Photos: 2560px x 1440px (16:9 Landscape)
+* Tool: Use `Squoosh.app` to compress images to ~500KB before uploading.
+
+4. Deployment & SEO
+
+* Deployment: The site is configured to deploy automatically when changes are pushed to the GitHub repository.
+* Search Engine Discovery: The `sitemap.xml` and `robots.txt` are configured for Google and AI discovery. Submit the sitemap to Google Search Console whenever a new blog is added.

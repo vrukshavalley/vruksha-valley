@@ -9,10 +9,16 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vruksha Valley | Best Luxury Resort in Kalasa, Chikmagalur",
-  description: "Experience Vruksha Valley, the premier luxury resort in Kalasa, Chikmagalur. Ideally located for Hornadu pilgrims, Netravati trekkers, and Kyatanamakki Jeep safari lovers. Just 800m from Soormane Falls.",
+  description: "A premier luxury resort in Kalasa, Chikmagalur. Just 800m from Soormane Falls. Ideally located for Hornadu pilgrims, Netravati trekkers, and Kyatanamakki Jeep safari lovers.",
   metadataBase: new URL('https://vrukshavalley.com'),
   alternates: {
     canonical: '/',
+  },
+
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   openGraph: {
     title: "Vruksha Valley | Best Luxury Nature Stay in Kalasa, Chikmagalur",
