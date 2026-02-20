@@ -8,15 +8,6 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'loremflickr.com', pathname: '/**' },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/((?!maintenance|_next/static|_next/image|favicon.ico).*)',
-        destination: '/maintenance',
-        permanent: false,
-      },
-    ]
   },
-};
-
+  
 export default nextConfig;
