@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 "use client";
+=======
+"use client"; 
+>>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 import React, { useState } from "react";
 import { MapPin, Phone, Instagram, Clock, CheckCircle, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";

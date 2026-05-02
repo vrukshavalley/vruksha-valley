@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+<<<<<<< HEAD
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
     images: ['/logo.png'],
   },
 };
+=======
+>>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 
 export default function AboutPage() {
   const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.";

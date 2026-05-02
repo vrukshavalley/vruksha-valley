@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import type { Metadata } from 'next';
+=======
+>>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
+<<<<<<< HEAD
 export const metadata: Metadata = {
   title: "Travel Journal | Kalasa Trekking, Temples & Nature Guides — Vruksha Valley",
   description: "Read travel guides from Vruksha Valley Resort — covering Soormane Falls, Netravati Peak trekking, Horanadu Temple, Kyatanamakki Jeep Safari, and the best 2-day Kalasa itinerary.",
@@ -27,6 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
+=======
+>>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 const blogPosts = [
   {
     slug: "soormane-falls-guide",

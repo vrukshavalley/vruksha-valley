@@ -86,7 +86,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <main className="bg-[#FDFBF7] min-h-screen">
       <Navbar />
-      
+
       <header className="pt-40 pb-16 px-6 max-w-4xl mx-auto text-center">
         <p className="text-[#C5A059] text-[10px] uppercase tracking-[0.5em] font-bold mb-4">{post.category}</p>
         <h1 className="text-4xl md:text-7xl font-serif text-[#0A2F1F] leading-tight mb-4">{post.title}</h1>
@@ -108,8 +108,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         <div className="mt-24 p-12 bg-[#0A2F1F] text-[#FDFBF7] text-center rounded-sm shadow-2xl">
           <h3 className="text-3xl font-serif mb-6">Ready to write your own story?</h3>
-          <Link 
-            href="https://wa.me/918217764481" 
+          <Link
+            href="https://wa.me/918217764481"
             className="inline-block px-12 py-4 bg-[#C5A059] text-[#0A2F1F] uppercase tracking-[0.4em] font-bold text-xs hover:bg-white transition-all duration-500"
           >
             Book Your Stay
