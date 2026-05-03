@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import type { Metadata } from 'next';
-=======
->>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
-<<<<<<< HEAD
 export const metadata: Metadata = {
   title: "Travel Journal | Kalasa Trekking, Temples & Nature Guides — Vruksha Valley",
   description: "Read travel guides from Vruksha Valley Resort — covering Soormane Falls, Netravati Peak trekking, Horanadu Temple, Kyatanamakki Jeep Safari, and the best 2-day Kalasa itinerary.",
@@ -31,8 +27,6 @@ export const metadata: Metadata = {
   },
 };
 
-=======
->>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 const blogPosts = [
   {
     slug: "soormane-falls-guide",
@@ -69,37 +63,37 @@ export default function BlogList() {
 
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-  {blogPosts.map((post) => (
-    <Link 
-      key={post.slug} 
-      href={`/blog/${post.slug}`} 
-      className="group flex flex-col space-y-6"
-    >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-sm shadow-xl bg-[#0A2F1F]">
-        <Image 
-          src={post.image} 
-          alt={post.title} 
-          fill 
-          className="object-cover transition-transform duration-700 group-hover:scale-110" 
-        />
-        <div className="absolute top-4 left-4 bg-[#C5A059] text-[#0A2F1F] text-[10px] px-3 py-1 uppercase font-bold tracking-widest">
-          {post.category}
+          {blogPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col space-y-6"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm shadow-xl bg-[#0A2F1F]">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 bg-[#C5A059] text-[#0A2F1F] text-[10px] px-3 py-1 uppercase font-bold tracking-widest">
+                  {post.category}
+                </div>
+              </div>
+              <div className="space-y-3">
+                <h2 className="text-2xl font-serif text-[#0A2F1F] group-hover:text-[#C5A059] transition-colors">
+                  {post.title}
+                </h2>
+                <p className="text-[#0A2F1F]/70 font-serif italic text-sm leading-relaxed">
+                  {post.excerpt}
+                </p>
+                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#C5A059] border-b border-[#C5A059]/30 pb-1">
+                  Read Story
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
-      </div>
-      <div className="space-y-3">
-        <h2 className="text-2xl font-serif text-[#0A2F1F] group-hover:text-[#C5A059] transition-colors">
-          {post.title}
-        </h2>
-        <p className="text-[#0A2F1F]/70 font-serif italic text-sm leading-relaxed">
-          {post.excerpt}
-        </p>
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#C5A059] border-b border-[#C5A059]/30 pb-1">
-          Read Story
-        </span>
-      </div>
-    </Link>
-  ))}
-</div>
       </section>
     </main>
   );

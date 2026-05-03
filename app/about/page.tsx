@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-<<<<<<< HEAD
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -26,8 +25,6 @@ export const metadata: Metadata = {
     images: ['/logo.png'],
   },
 };
-=======
->>>>>>> a3e9241464ae26dcbcba0c66f1374b04f23cafdf
 
 export default function AboutPage() {
   const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.";
@@ -37,8 +34,8 @@ export default function AboutPage() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#0A2F1F]/40 z-10" />
-          <Image 
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070" 
+          <Image
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070"
             fill
             className="object-cover"
             alt="Vruksha Valley Landscape"
@@ -66,7 +63,7 @@ export default function AboutPage() {
               Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.
             </p>
             <p>
-              Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family’s deep connection to this land.
+              Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family's deep connection to this land.
             </p>
           </div>
         </div>
@@ -75,9 +72,9 @@ export default function AboutPage() {
       <section className="pb-20 md:pb-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-2xl">
-            <Image 
-              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071" 
-              alt="Nature at Vruksha Valley" 
+            <Image
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071"
+              alt="Nature at Vruksha Valley"
               fill
               className="object-cover"
             />
@@ -108,7 +105,7 @@ export default function AboutPage() {
           <p className="opacity-80 text-lg font-serif italic">
             Your journey into the heart of the Western Ghats begins here.
           </p>
-          <a 
+          <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
