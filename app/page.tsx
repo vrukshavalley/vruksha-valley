@@ -174,11 +174,12 @@ export default function Home() {
 
         <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
           <p className="text-[#FDFBF7] text-xs md:text-sm tracking-[0.4em] uppercase mb-4 drop-shadow-lg opacity-90">
-            Welcome to Vruksha Valley
+            Luxury Nature Resort | Kalasa, Chikmagalur
           </p>
           <h1 className="text-[#FDFBF7] text-3xl md:text-7xl font-serif leading-tight drop-shadow-2xl">
-            A place to pause and remember <br className="hidden md:block" /> 
+            A place to pause and remember <br className="hidden md:block" />
             what matters the most.
+            <span className="sr-only"> — Vruksha Valley, Best Resort in Kalasa, Chikmagalur near Soormane Falls and Horanadu Temple</span>
           </h1>
         </div>
       </section>
@@ -192,6 +193,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-6xl font-serif leading-tight">
               A Sanctuary in the <br />
               <span className="text-[#C5A059] italic font-medium">Heart of Nature.</span>
+              <span className="sr-only"> — Eco Resort on a Coffee Estate in Kalasa, Western Ghats, Karnataka</span>
             </h2>
           </div>
           <div className="space-y-6 text-[#0A2F1F]/80 font-serif leading-relaxed text-lg italic">
