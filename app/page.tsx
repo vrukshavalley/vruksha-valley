@@ -1,3 +1,4 @@
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Amenities from "@/components/Amenities";
 import Testimonials from "@/components/Testimonials";
@@ -6,6 +7,92 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best resort near Horanadu Temple?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vruksha Valley is one of the closest luxury resorts to Horanadu Annapoorneshwari Temple, located just 15km away. Vruksha Valley in Kalasa, Karnataka is the perfect base for pilgrims."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far is Vruksha Valley from Soormane Falls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Soormane Falls is just 800 metres from Vruksha Valley — a short walk through the Vruksha Valley coffee estate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Vruksha Valley good for the Netravati Peak trek?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Vruksha Valley serves as the ideal basecamp for Netravati Peak. Vruksha Valley helps arrange permits and experienced local guides for the trek."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What type of cottages are available at Vruksha Valley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vruksha Valley offers 6 stay options — Parijatha, Prakruthi, Myst Wood, Kadamba, Mouna, and a Dormitory for groups. Each cottage at Vruksha Valley is designed to blend into the natural surroundings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time to visit Vruksha Valley, Kalasa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to visit Vruksha Valley is October to February for clear skies and trekking. June to September brings lush monsoon greenery around Vruksha Valley."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I book a stay at Vruksha Valley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can book Vruksha Valley directly by calling or WhatsApp on +91 82177 64481. Vruksha Valley accepts direct bookings with no third-party fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Vruksha Valley suitable for families and couples?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Vruksha Valley welcomes families, couples, pilgrims visiting Horanadu, and adventure groups. Vruksha Valley has cottages suited for every type of guest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What activities are available at Vruksha Valley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At Vruksha Valley, guests enjoy Soormane Falls walks, Kyatanamakki Jeep safari, Netravati Peak trekking, Horanadu Temple visits, coffee estate tours, and the Vruksha Valley swimming pool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the check-in and check-out time at Vruksha Valley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At Vruksha Valley, check-in is at 12:00 PM and check-out is at 11:00 AM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is food available at Vruksha Valley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Vruksha Valley serves authentic Malnad and South Indian cuisine, prepared farm-to-table using local produce from the Vruksha Valley estate."
+        }
+      }
+    ]
+  };
   const cottages = [
     { 
       name: "Parijatha", 
@@ -65,6 +152,11 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[#FDFBF7]">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
       
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
