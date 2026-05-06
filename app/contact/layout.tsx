@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     "book resort Kalasa", "Vruksha Valley contact", "Chikmagalur resort booking",
     "Kalasa cottage reservation", "Horanadu temple stay booking",
     "Soormane falls resort contact", "Western Ghats resort inquiry",
-    "Malnad resort WhatsApp", "Netravati trek package", "Kyatanamakki jeep safari booking"
+    "Malnad resort WhatsApp", "Netravati trek package", "Kyatanamakki jeep safari booking",
+    "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
   ],
   alternates: { canonical: '/contact' },
   openGraph: {

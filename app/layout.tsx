@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     "Netravati peak trekking", "Kyatanamakki jeep safari", "coffee estate stay Karnataka",
     "Malnad resort", "eco resort Chikmagalur", "cottage stay Kalasa",
     "resort near Horanadu", "Western Ghats luxury hotel", "Kudremukh resort",
-    "Kalasa Karnataka tourism", "Guddemakki resort"
+    "Kalasa Karnataka tourism", "Guddemakki resort",
+    "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
   ],
   icons: {
     icon: '/favicon.ico',

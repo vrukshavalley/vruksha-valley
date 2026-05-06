@@ -10,7 +10,9 @@ export const metadata: Metadata = {
     "Kalasa travel guide", "Soormane falls guide", "Netravati peak trekking guide",
     "Horanadu temple itinerary", "Kyatanamakki jeep safari", "Chikmagalur travel blog",
     "Western Ghats trekking", "Malnad travel itinerary", "things to do in Kalasa",
-    "best time to visit Chikmagalur", "Vruksha Valley journal"
+    "best time to visit Chikmagalur", "Vruksha Valley journal",
+    "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
   ],
   alternates: { canonical: '/blog' },
   openGraph: {
@@ -47,6 +49,20 @@ const blogPosts = [
     title: "The Ultimate 2-Day Itinerary",
     excerpt: "Experience the best of Kalasa, from ancient temples to sunset hills.",
     image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071",
+    category: "Travel"
+  },
+  {
+    slug: "top-places-in-kalasa",
+    title: "Top Places to Visit in Kalasa",
+    excerpt: "A local guide to Soormane Falls, Horanadu Temple, Netravati Peak and more.",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070",
+    category: "Travel"
+  },
+  {
+    slug: "best-time-to-visit-chikmagalur",
+    title: "Best Time to Visit Chikmagalur",
+    excerpt: "Season-by-season guide to Chikmagalur weather, trekking, and waterfalls.",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070",
     category: "Travel"
   }
 ];

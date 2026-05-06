@@ -9,7 +9,9 @@ export const metadata: Metadata = {
     "about Vruksha Valley", "eco resort Kalasa", "Chikmagalur resort story",
     "sustainable luxury resort Karnataka", "coffee estate stay Kalasa",
     "Western Ghats nature retreat", "Malnad hospitality", "Horanadu temple stay",
-    "Netravati peak basecamp", "Soormane falls resort"
+    "Netravati peak basecamp", "Soormane falls resort",
+    "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
   ],
   alternates: { canonical: '/about' },
   openGraph: {

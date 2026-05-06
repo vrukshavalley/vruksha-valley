@@ -11,7 +11,8 @@ export const metadata: Metadata = {
     "luxury cottage images Karnataka", "Western Ghats resort gallery",
     "Parijatha cottage", "Prakruthi heritage stay", "Myst Wood forest retreat",
     "Kadamba nature cottage", "Mouna sanctuary", "resort swimming pool Kalasa",
-    "Malnad dining experience"
+    "Malnad dining experience", "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
   ],
   alternates: { canonical: '/gallery' },
   openGraph: {
