@@ -51,20 +51,6 @@ const blogPosts = [
     image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071",
     category: "Travel"
   },
-  {
-    slug: "top-places-in-kalasa",
-    title: "Top Places to Visit in Kalasa",
-    excerpt: "A local guide to Soormane Falls, Horanadu Temple, Netravati Peak and more.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070",
-    category: "Travel"
-  },
-  {
-    slug: "best-time-to-visit-chikmagalur",
-    title: "Best Time to Visit Chikmagalur",
-    excerpt: "Season-by-season guide to Chikmagalur weather, trekking, and waterfalls.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070",
-    category: "Travel"
-  }
 ];
 
 export default function BlogList() {
