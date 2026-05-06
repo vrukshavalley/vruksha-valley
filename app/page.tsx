@@ -1,5 +1,36 @@
+import type { Metadata } from 'next';
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Vruksha Valley | Best Luxury Resort in Kalasa, Chikmagalur",
+  description: "Vruksha Valley is a luxury nature resort in Kalasa, Chikmagalur — 800m from Soormane Falls, 15km from Horanadu Temple. Coffee estate cottages, swimming pool, Malnad cuisine.",
+  keywords: [
+    "Vruksha Valley", "best resort in Kalasa", "luxury resort Kalasa Chikmagalur",
+    "resort near Horanadu Temple", "resort near Soormane Falls", "Kalasa resort booking",
+    "nature resort Chikmagalur", "coffee estate resort Karnataka", "Western Ghats luxury stay",
+    "Parijatha cottage Kalasa", "Prakruthi heritage stay", "Myst Wood forest retreat",
+    "Kadamba cottage Kalasa", "Mouna sanctuary Vruksha Valley", "group stay Kalasa",
+    "swimming pool resort Chikmagalur", "Malnad cuisine resort", "farm to table Kalasa",
+    "Netravati peak basecamp", "Kyatanamakki jeep safari resort", "Soormane Falls walk",
+    "Horanadu pilgrimage stay", "eco resort Western Ghats", "cottage stay Kalasa Karnataka",
+    "resort in Kalasa", "resort near Soormane Falls",
+    "Chikmagalur luxury stay", "coffee estate homestay Kalasa"
+  ],
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: "Vruksha Valley | Luxury Nature Resort in Kalasa, Chikmagalur",
+    description: "800m from Soormane Falls. 15km from Horanadu Temple. Coffee estate cottages, swimming pool & Malnad cuisine at Vruksha Valley, Kalasa.",
+    url: 'https://vrukshavalley.com',
+    images: [{ url: '/vrukshavalley-view.webp', width: 1200, height: 630, alt: 'Vruksha Valley luxury resort Kalasa Chikmagalur' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Vruksha Valley | Luxury Nature Resort in Kalasa, Chikmagalur",
+    description: "800m from Soormane Falls. 15km from Horanadu Temple. Coffee estate cottages, swimming pool & Malnad cuisine.",
+    images: ['/vrukshavalley-view.webp'],
+  },
+};
 import Amenities from "@/components/Amenities";
 import Testimonials from "@/components/Testimonials";
 import RoomCarousel from "@/components/RoomCarousel";
