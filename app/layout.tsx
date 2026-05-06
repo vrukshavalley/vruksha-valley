@@ -116,13 +116,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" suppressHydrationWarning className="bg-[#FDFBF7]">
-      <head>
+      <body className={`${playfair.className} bg-[#FDFBF7] m-0 p-0 overflow-x-hidden`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${playfair.className} bg-[#FDFBF7] m-0 p-0 overflow-x-hidden`}>
         <Navbar />
         <main className="min-h-screen w-full">
           {children}
