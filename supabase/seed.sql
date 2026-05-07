@@ -1,5 +1,15 @@
--- Run this in Supabase SQL Editor AFTER schema.sql
--- Safe to run multiple times — upserts existing rows, clears and re-seeds others
+-- Run this in Supabase SQL Editor (safe to run multiple times)
+
+-- ─── CREATE gallery_categories TABLE IF MISSING ──────────────────────────────
+create table if not exists gallery_categories (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  images text[] default '{}',
+  order_index integer default 0
+);
+alter table gallery_categories enable row level security;
+create policy if not exists "Public read gallery_categories" on gallery_categories for select using (true);
+create policy if not exists "Auth write gallery_categories" on gallery_categories for all using (auth.role() = 'authenticated');
 
 -- ─── COTTAGES ───────────────────────────────────────────────────────────────
 truncate table cottages restart identity cascade;
