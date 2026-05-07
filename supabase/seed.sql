@@ -1,7 +1,8 @@
 -- Run this in Supabase SQL Editor AFTER schema.sql
--- Seeds all existing website content into the database
+-- Safe to run multiple times — upserts existing rows, clears and re-seeds others
 
 -- ─── COTTAGES ───────────────────────────────────────────────────────────────
+truncate table cottages restart identity cascade;
 insert into cottages (name, type, images, order_index) values
   ('Parijatha', 'Signature Cottage', array[
     '/rooms/vruksha-parijatha/vruksha-parijatha-1.webp',
@@ -35,6 +36,7 @@ insert into cottages (name, type, images, order_index) values
   ], 5);
 
 -- ─── AMENITIES ──────────────────────────────────────────────────────────────
+truncate table amenities restart identity cascade;
 insert into amenities (icon, title, description, order_index) values
   ('Wind',   'Pure Serenity',  'Zero noise pollution. Only the sound of the wild.',  0),
   ('Waves',  'Soormane Falls', 'Just 800m away. Experience the roar of nature.',     1),
@@ -44,6 +46,7 @@ insert into amenities (icon, title, description, order_index) values
   ('Flame',  'Campfire',       'Warm evenings under the starlit Kalasa sky.',        5);
 
 -- ─── TESTIMONIALS ───────────────────────────────────────────────────────────
+truncate table testimonials restart identity cascade;
 insert into testimonials (author, role, content, order_index) values
   ('Arjun Mehta',  'Tech Lead, Bangalore', 'The silence here is profound. Watching the mist roll over the Kalasa peaks from our A-frame was the reset I didn''t know I needed.', 0),
   ('Priya Rao',    'Nature Photographer',  'A rare find. The proximity to Soormane Falls combined with the luxury of the wood house makes this the finest stay in Malnad.',        1),
@@ -53,6 +56,7 @@ insert into testimonials (author, role, content, order_index) values
   ('Ananya Desai', 'Travel Writer',        'I have traveled across the Western Ghats, but the hospitality at Vruksha Valley is in a league of its own.',                         5);
 
 -- ─── FAQs ───────────────────────────────────────────────────────────────────
+truncate table faqs restart identity cascade;
 insert into faqs (question, answer, order_index) values
   ('What is the best resort near Horanadu Temple?',
    'Vruksha Valley is one of the closest luxury resorts to Horanadu Annapoorneshwari Temple, located just 15km away. Vruksha Valley in Kalasa, Karnataka is the perfect base for pilgrims.',
@@ -85,26 +89,28 @@ insert into faqs (question, answer, order_index) values
    'Yes. Vruksha Valley serves authentic Malnad and South Indian cuisine, prepared farm-to-table using local produce from the Vruksha Valley estate.',
    9);
 
--- ─── SITE SETTINGS ──────────────────────────────────────────────────────────
+-- ─── SITE SETTINGS (upsert — safe if keys already exist) ────────────────────
 insert into site_settings (key, value) values
-  ('hero_tagline',       'Luxury Nature Resort | Kalasa, Chikmagalur'),
-  ('hero_heading',       'A place to pause and remember what matters the most.'),
-  ('about_label',        'Our Story'),
-  ('about_heading',      'A Sanctuary in the Heart of Nature.'),
-  ('about_paragraph_1',  'Vruksha Valley was born from a simple desire: to create a space where the modern world fades away and the rhythm of the Western Ghats takes over.'),
-  ('about_paragraph_2',  'Located in the misty heights of Kalasa, our resort is more than a destination; it is a tribute to the ancient coffee estates and the quiet dignity of the mountains.'),
-  ('contact_phone_1',    '+91 82177 64481'),
-  ('contact_phone_2',    '+91 63643 64481'),
-  ('contact_whatsapp',   '918217764481'),
-  ('contact_email',      'vrukshavalley@gmail.com'),
-  ('contact_address',    'Soormane Falls Road, Guddemakki, Kalasa, Karnataka - 577124'),
-  ('contact_hours',      '8:00 AM — 10:00 PM IST'),
-  ('social_instagram',   'https://www.instagram.com/vrukshavalley/'),
-  ('social_youtube',     'https://youtube.com/@vrukshavalley'),
-  ('social_facebook',    'https://facebook.com'),
-  ('footer_tagline',     'A place to pause and remember what matters the most.');
+  ('hero_tagline',      'Luxury Nature Resort | Kalasa, Chikmagalur'),
+  ('hero_heading',      'A place to pause and remember what matters the most.'),
+  ('about_label',       'Our Story'),
+  ('about_heading',     'A Sanctuary in the Heart of Nature.'),
+  ('about_paragraph_1', 'Vruksha Valley was born from a simple desire: to create a space where the modern world fades away and the rhythm of the Western Ghats takes over.'),
+  ('about_paragraph_2', 'Located in the misty heights of Kalasa, our resort is more than a destination; it is a tribute to the ancient coffee estates and the quiet dignity of the mountains.'),
+  ('contact_phone_1',   '+91 82177 64481'),
+  ('contact_phone_2',   '+91 63643 64481'),
+  ('contact_whatsapp',  '918217764481'),
+  ('contact_email',     'vrukshavalley@gmail.com'),
+  ('contact_address',   'Soormane Falls Road, Guddemakki, Kalasa, Karnataka - 577124'),
+  ('contact_hours',     '8:00 AM — 10:00 PM IST'),
+  ('social_instagram',  'https://www.instagram.com/vrukshavalley/'),
+  ('social_youtube',    'https://youtube.com/@vrukshavalley'),
+  ('social_facebook',   'https://facebook.com'),
+  ('footer_tagline',    'A place to pause and remember what matters the most.')
+on conflict (key) do update set value = excluded.value, updated_at = now();
 
 -- ─── GALLERY CATEGORIES ─────────────────────────────────────────────────────
+truncate table gallery_categories restart identity cascade;
 insert into gallery_categories (title, images, order_index) values
   ('Parijatha', array[
     '/gallery/vruksha-parijatha/vruksha-parijatha-1.webp',
@@ -155,7 +161,7 @@ insert into gallery_categories (title, images, order_index) values
     'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=2070'
   ], 8);
 
--- ─── PAGE METADATA ──────────────────────────────────────────────────────────
+-- ─── PAGE METADATA (upsert — safe if pages already exist) ───────────────────
 insert into page_metadata (page, title, description, keywords) values
   ('home',
    'Vruksha Valley | Best Luxury Resort in Kalasa, Chikmagalur',
@@ -181,4 +187,8 @@ insert into page_metadata (page, title, description, keywords) values
    'Journal | Vruksha Valley Resort Blog',
    'Read travel guides, trekking tips, and stories from Vruksha Valley — the luxury nature resort in Kalasa, Chikmagalur.',
    array['Vruksha Valley blog','Kalasa travel guide','Soormane Falls guide','Netravati Peak trek guide','Malnad travel tips']
-  );
+  )
+on conflict (page) do update set
+  title = excluded.title,
+  description = excluded.description,
+  keywords = excluded.keywords;
