@@ -61,6 +61,14 @@ create table if not exists testimonials (
   order_index integer default 0
 );
 
+-- Gallery Categories
+create table if not exists gallery_categories (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  images text[] default '{}',
+  order_index integer default 0
+);
+
 -- Amenities
 create table if not exists amenities (
   id uuid default gen_random_uuid() primary key,
@@ -99,3 +107,7 @@ create policy "Auth write testimonials" on testimonials for all using (auth.role
 
 create policy "Public read amenities" on amenities for select using (true);
 create policy "Auth write amenities" on amenities for all using (auth.role() = 'authenticated');
+
+alter table gallery_categories enable row level security;
+create policy "Public read gallery_categories" on gallery_categories for select using (true);
+create policy "Auth write gallery_categories" on gallery_categories for all using (auth.role() = 'authenticated');

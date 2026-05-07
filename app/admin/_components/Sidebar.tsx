@@ -4,18 +4,19 @@ import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import {
   LayoutDashboard, FileText, HelpCircle, MessageSquare,
-  Sparkles, Home, Search, Settings, LogOut, Star
+  Sparkles, Home, Search, Settings, LogOut, Images
 } from 'lucide-react'
 
 const nav = [
-  { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { label: 'Blog Posts', href: '/admin/blog', icon: FileText },
-  { label: 'FAQ', href: '/admin/faq', icon: HelpCircle },
-  { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
-  { label: 'Amenities', href: '/admin/amenities', icon: Sparkles },
-  { label: 'Cottages', href: '/admin/cottages', icon: Home },
-  { label: 'Page SEO', href: '/admin/metadata', icon: Search },
-  { label: 'Settings', href: '/admin/settings', icon: Settings },
+  { label: 'Dashboard',   href: '/admin',             icon: LayoutDashboard },
+  { label: 'Blog Posts',  href: '/admin/blog',         icon: FileText },
+  { label: 'FAQ',         href: '/admin/faq',          icon: HelpCircle },
+  { label: 'Testimonials',href: '/admin/testimonials', icon: MessageSquare },
+  { label: 'Amenities',   href: '/admin/amenities',    icon: Sparkles },
+  { label: 'Cottages',    href: '/admin/cottages',     icon: Home },
+  { label: 'Gallery',     href: '/admin/gallery',      icon: Images },
+  { label: 'Page SEO',    href: '/admin/metadata',     icon: Search },
+  { label: 'Settings',    href: '/admin/settings',     icon: Settings },
 ]
 
 export default function Sidebar() {

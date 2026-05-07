@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Metadata } from 'next';
 import RoomCarousel from "@/components/RoomCarousel";
 import Navbar from "@/components/Navbar";
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: "Photo Gallery | Cottages, Pool & Nature at Vruksha Valley Kalasa",
@@ -29,84 +29,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GalleryPage() {
-  const categories = [
-    {
-      title: "Parijatha",
-      images: [
-        "/gallery/vruksha-parijatha/vruksha-parijatha-1.webp",
-        "/gallery/vruksha-parijatha/vruksha-parijatha-2.webp",
-        "/gallery/vruksha-parijatha/vruksha-parijatha-3.webp"
-      ]
-    },
-    {
-      title: "Prakruthi",
-      images: [
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-1.webp",
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-2.webp",
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-3.webp",
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-4.webp",
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-5.webp",
-        "/gallery/vruksha-prakruthi/vruksha-prakruthi-6.webp"
-      ]
-    },
-    {
-      title: "Myst Wood",
-      images: [
-        "/gallery/vruksha-mystwood/vruksha-mystwood-1.webp",
-        "/gallery/vruksha-mystwood/vruksha-mystwood-2.webp",
-        "/gallery/vruksha-mystwood/vruksha-mystwood-3.webp",
-        "/gallery/vruksha-mystwood/vruksha-mystwood-4.webp"
-      ]
-    },
-    {
-      title: "Kadamba",
-      images: [
-        "/gallery/vruksha-kadamba/vruksha-kadamba-1.webp",
-        "/gallery/vruksha-kadamba/vruksha-kadamba-2.webp"
-      ]
-    },
-    {
-      title: "Mouna",
-      images: [
-        "/gallery/vruksha-mouna/vruksha-mouna-1.webp",
-        "/gallery/vruksha-mouna/vruksha-mouna-2.webp",
-        "/gallery/vruksha-mouna/vruksha-mouna-3.webp",
-        "/gallery/vruksha-mouna/vruksha-mouna-4.webp"
-      ]
-    },
-    {
-      title: "Dormitory",
-      images: [
-        "/gallery/vruksha-dormitory/vruksha-dormitory-1.webp",
-        "/gallery/vruksha-dormitory/vruksha-dormitory-2.webp",
-        "/gallery/vruksha-dormitory/vruksha-dormitory-3.webp"
-      ]
-    },
-    {
-      title: "Swimming Pool",
-      images: [
-        "/gallery/vruksha-pool/vruksha-pool-1.webp",
-        "/gallery/vruksha-pool/vruksha-pool-2.webp",
-        "/gallery/vruksha-pool/vruksha-pool-3.webp"
-      ]
-    },
-    {
-      title: "Dining Space",
-      images: [
-        "/gallery/vruksha-diningspace/vruksha-diningspace-1.webp",
-        "/gallery/vruksha-diningspace/vruksha-diningspace-2.webp",
-        "/gallery/vruksha-diningspace/vruksha-diningspace-3.webp"
-      ]
-    },
-    {
-      title: "Indoor Games",
-      images: [
-        "https://images.unsplash.com/photo-1611996575749-79a3a250f948?q=80&w=2070",
-        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=2070"
-      ]
-    },
-  ];
+type Category = { id: string; title: string; images: string[]; order_index: number };
+
+export default async function GalleryPage() {
+  const supabase = await createClient();
+  const { data: categories } = await supabase
+    .from('gallery_categories')
+    .select('*')
+    .order('order_index');
 
   return (
     <section className="bg-[#FDFBF7] pt-32 pb-20 w-full min-h-screen">
@@ -121,12 +51,11 @@ export default function GalleryPage() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((cat, index) => (
+          {(categories || []).map((cat: Category, index: number) => (
             <div key={index} className="flex flex-col space-y-4 group">
               <div className="relative rounded-sm overflow-hidden shadow-md bg-[#0A2F1F]">
                 <RoomCarousel images={cat.images} name={cat.title} />
               </div>
-
               <div className="text-center pt-2">
                 <h2 className="text-[#0A2F1F] text-xs tracking-[4px] uppercase font-bold">
                   {cat.title}

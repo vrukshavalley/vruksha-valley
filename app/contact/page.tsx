@@ -1,31 +1,45 @@
 "use client";
-import React, { useState } from "react";
-import { MapPin, Phone, Instagram, Clock, CheckCircle, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MapPin, Phone, Clock, CheckCircle, MessageCircle } from "lucide-react";
+
 import Navbar from "@/components/Navbar";
+import { createClient } from "@/lib/supabase/client";
+
+type Settings = Record<string, string>;
+
+const DEFAULTS: Settings = {
+  contact_phone_1: "+91 82177 64481",
+  contact_phone_2: "+91 63643 64481",
+  contact_whatsapp: "918217764481",
+  contact_address: "Soormane Falls Road, Guddemakki, Kalasa, Karnataka 577124",
+  contact_hours: "8:00 AM — 10:00 PM IST",
+};
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"IDLE" | "SUBMITTING" | "SUCCESS" | "ERROR">("IDLE");
+  const [s, setS] = useState<Settings>(DEFAULTS);
+
+  useEffect(() => {
+    createClient().from('site_settings').select('key,value').then(({ data }) => {
+      if (data?.length) {
+        const map: Settings = {};
+        data.forEach(r => { map[r.key] = r.value || ''; });
+        setS(prev => ({ ...prev, ...map }));
+      }
+    });
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("SUBMITTING");
-
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "5f51ff18-48af-441c-8119-c45792b643da");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
+    const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
     const data = await response.json();
-
-    if (data.success) {
-      setStatus("SUCCESS");
-    } else {
-      setStatus("ERROR");
-    }
+    setStatus(data.success ? "SUCCESS" : "ERROR");
   }
+
+  const waUrl = `https://wa.me/${s.contact_whatsapp || '918217764481'}`;
 
   return (
     <main className="pt-24 md:pt-32 pb-20 bg-[#FDFBF7] text-[#0A2F1F]">
@@ -35,7 +49,7 @@ export default function ContactPage() {
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="text-[#C5A059] text-[10px] md:text-xs uppercase tracking-[0.5em] font-bold mb-4">Get in Touch</p>
           <h1 className="text-3xl md:text-7xl font-serif mb-6 leading-tight px-2">
-            We are here to <br/> <span className="text-[#C5A059] italic">guide you.</span>
+            We are here to <br /> <span className="text-[#C5A059] italic">guide you.</span>
           </h1>
           <p className="text-base md:text-lg font-serif italic text-[#0A2F1F]/70 px-4">
             Planning a trek or looking for a relaxing stay? Reach out to us for bookings,
@@ -50,7 +64,7 @@ export default function ContactPage() {
               <MapPin className="text-[#C5A059] shrink-0" size={24} />
               <div>
                 <h3 className="uppercase tracking-widest text-[10px] font-bold mb-2 text-[#C5A059]">The Resort Address</h3>
-                <p className="text-lg md:text-xl font-serif leading-snug">Soormane Falls Road, Guddemakki, <br className="hidden md:block"/> Kalasa, Karnataka 577124</p>
+                <p className="text-lg md:text-xl font-serif leading-snug">{s.contact_address}</p>
               </div>
             </div>
 
@@ -58,8 +72,8 @@ export default function ContactPage() {
               <Phone className="text-[#C5A059] shrink-0" size={24} />
               <div>
                 <h3 className="uppercase tracking-widest text-[10px] font-bold mb-2 text-[#C5A059]">Reservations</h3>
-                <p className="text-lg md:text-xl font-serif">+91 82177 64481</p>
-                <p className="text-lg md:text-xl font-serif">+91 63643 64481</p>
+                <p className="text-lg md:text-xl font-serif">{s.contact_phone_1}</p>
+                <p className="text-lg md:text-xl font-serif">{s.contact_phone_2}</p>
               </div>
             </div>
 
@@ -67,7 +81,9 @@ export default function ContactPage() {
               <MessageCircle className="text-[#C5A059] shrink-0" size={24} />
               <div>
                 <h3 className="uppercase tracking-widest text-[10px] font-bold mb-2 text-[#C5A059]">WhatsApp Chat</h3>
-                <a href="https://wa.me/918217764481" target="_blank" className="text-lg md:text-xl font-serif hover:text-[#C5A059] border-b border-[#C5A059]/30">Click to chat with us</a>
+                <a href={waUrl} target="_blank" className="text-lg md:text-xl font-serif hover:text-[#C5A059] border-b border-[#C5A059]/30">
+                  Click to chat with us
+                </a>
               </div>
             </div>
 
@@ -75,7 +91,7 @@ export default function ContactPage() {
               <Clock className="text-[#C5A059] shrink-0" size={24} />
               <div>
                 <h3 className="uppercase tracking-widest text-[10px] font-bold mb-2 text-[#C5A059]">Best Time to Call</h3>
-                <p className="text-lg md:text-xl font-serif">8:00 AM — 10:00 PM IST</p>
+                <p className="text-lg md:text-xl font-serif">{s.contact_hours}</p>
               </div>
             </div>
           </div>

@@ -1,31 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 
-const reviews = [
-  { id: 1, text: "The silence here is profound. Watching the mist roll over the Kalasa peaks from our A-frame was the reset I didn't know I needed.", author: "Arjun Mehta", role: "Tech Lead, Bangalore" },
-  { id: 2, text: "A rare find. The proximity to Soormane Falls combined with the luxury of the wood house makes this the finest stay in Malnad.", author: "Priya Rao", role: "Nature Photographer" },
-  { id: 3, text: "Finally, a place that understands the luxury of space. We spent hours just 'pausing' and listening to the estate sounds.", author: "Vikram Singh", role: "Entrepreneur" },
-  { id: 4, text: "The Malnad cuisine was exceptional. Waking up to the smell of fresh coffee and damp earth is a memory I will cherish forever.", author: "Sneha Kapoor", role: "Food Blogger" },
-  { id: 5, text: "Perfect for families. The kids loved the estate walk, and we loved the absolute privacy of the Plantation Villa.", author: "Rahul Nair", role: "Architect" },
-  { id: 6, text: "I have traveled across the Western Ghats, but the hospitality at Vruksha Valley is in a league of its own.", author: "Ananya Desai", role: "Travel Writer" }
-];
+type Review = { id: string; author: string; role: string; content: string; order_index: number };
 
 const Testimonials = () => {
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    createClient().from('testimonials').select('*').order('order_index').then(({ data }) => {
+      if (data?.length) setReviews(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (reviews.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => prevIndex === reviews.length - 1 ? 0 : prevIndex + 1);
+      setCurrentIndex(prev => (prev === reviews.length - 1 ? 0 : prev + 1));
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [reviews.length]);
+
+  if (reviews.length === 0) return null;
 
   return (
     <section className="py-20 md:py-32 bg-[#0A2F1F] text-[#FDFBF7] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-6xl leading-tight font-serif mb-4">
             Guest Stories
@@ -34,7 +38,7 @@ const Testimonials = () => {
         </div>
 
         <div className="relative w-full max-w-4xl mx-auto">
-          <div 
+          <div
             className="flex transition-transform duration-1000 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
@@ -47,7 +51,7 @@ const Testimonials = () => {
                     ))}
                   </div>
                   <p className="font-serif italic text-lg md:text-2xl leading-relaxed opacity-90 max-w-2xl">
-                    "{review.text}"
+                    &ldquo;{review.content}&rdquo;
                   </p>
                   <div className="border-t border-[#C5A059]/30 pt-6 w-32">
                     <p className="text-[#C5A059] text-xs uppercase tracking-widest font-bold">
@@ -75,16 +79,15 @@ const Testimonials = () => {
           </div>
 
           <div className="mt-16 text-center">
-  <a 
-    href="https://search.google.com/local/reviews?placeid=ChIJi1lSVntJuzsRXdKS12L6Mx0" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="inline-block px-10 py-4 border border-[#C5A059] text-[#C5A059] text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-[#C5A059] hover:text-[#0A2F1F] transition-all duration-500 rounded-sm"
-  >
-    Read Verified Reviews on Google
-  </a>
-</div>
-
+            <a
+              href="https://search.google.com/local/reviews?placeid=ChIJi1lSVntJuzsRXdKS12L6Mx0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 border border-[#C5A059] text-[#C5A059] text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-[#C5A059] hover:text-[#0A2F1F] transition-all duration-500 rounded-sm"
+            >
+              Read Verified Reviews on Google
+            </a>
+          </div>
         </div>
       </div>
     </section>

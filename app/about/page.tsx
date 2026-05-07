@@ -1,6 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: "About Us | Vruksha Valley Eco Resort Kalasa, Chikmagalur",
@@ -28,8 +28,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
-  const whatsappUrl = "https://wa.me/918217764481?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.";
+export default async function AboutPage() {
+  const supabase = await createClient();
+  const { data: settings } = await supabase.from('site_settings').select('key,value');
+
+  const s: Record<string, string> = {};
+  (settings || []).forEach(r => { s[r.key] = r.value || ''; });
+
+  const whatsappNum = s.contact_whatsapp || '918217764481';
+  const whatsappUrl = `https://wa.me/${whatsappNum}?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.`;
+
+  const p1 = s.about_paragraph_1 || 'Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.';
+  const p2 = s.about_paragraph_2 || "Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family's deep connection to this land.";
 
   return (
     <main className="bg-[#FDFBF7] min-h-screen">
@@ -61,12 +71,8 @@ export default function AboutPage() {
             Where the misty mountains of Kalasa meet the <span className="italic">warmth of Malnad hospitality.</span>
           </h2>
           <div className="space-y-6 text-[#0A2F1F]/80 font-serif leading-relaxed text-lg italic max-w-2xl mx-auto">
-            <p>
-              Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.
-            </p>
-            <p>
-              Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family's deep connection to this land.
-            </p>
+            <p>{p1}</p>
+            <p>{p2}</p>
           </div>
         </div>
       </section>
@@ -82,9 +88,9 @@ export default function AboutPage() {
             />
           </div>
           <div className="space-y-8">
-            <h3 className="text-3xl md:text-5xl text-[#0A2F1F] font-serif">Sustainable <br/>Luxury.</h3>
+            <h3 className="text-3xl md:text-5xl text-[#0A2F1F] font-serif">Sustainable <br />Luxury.</h3>
             <p className="text-[#0A2F1F]/70 text-lg leading-relaxed font-serif">
-              We believe in "Low Impact, High Experience." From our signature A-Frame cottages designed to blend into the canopy to our farm-to-table dining, every detail at Vruksha Valley is crafted to honor the environment.
+              We believe in &ldquo;Low Impact, High Experience.&rdquo; From our signature A-Frame cottages designed to blend into the canopy to our farm-to-table dining, every detail at Vruksha Valley is crafted to honor the environment.
             </p>
             <ul className="space-y-4 text-[#0A2F1F] font-serif italic">
               <li className="flex items-center gap-4">
