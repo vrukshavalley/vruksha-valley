@@ -8,8 +8,12 @@ create table if not exists gallery_categories (
   order_index integer default 0
 );
 alter table gallery_categories enable row level security;
-create policy if not exists "Public read gallery_categories" on gallery_categories for select using (true);
-create policy if not exists "Auth write gallery_categories" on gallery_categories for all using (auth.role() = 'authenticated');
+do $$ begin
+  create policy "Public read gallery_categories" on gallery_categories for select using (true);
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create policy "Auth write gallery_categories" on gallery_categories for all using (auth.role() = 'authenticated');
+exception when duplicate_object then null; end $$;
 
 -- ─── COTTAGES ───────────────────────────────────────────────────────────────
 truncate table cottages restart identity cascade;
