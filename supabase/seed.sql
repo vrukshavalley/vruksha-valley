@@ -103,6 +103,33 @@ insert into faqs (question, answer, order_index) values
    'Yes. Vruksha Valley serves authentic Malnad and South Indian cuisine, prepared farm-to-table using local produce from the Vruksha Valley estate.',
    9);
 
+-- ─── BLOG POSTS ─────────────────────────────────────────────────────────────
+insert into blog_posts (slug, title, subtitle, category, image, published) values
+  ('soormane-falls-guide',
+   'The Soormane Falls Experience',
+   'Discover the hidden waterfall located just 800m from Vruksha Valley.',
+   'Nature',
+   '/gallery/vruksha-pool/vruksha-pool-1.webp',
+   true),
+  ('kalasa-trekking-guide',
+   'Trekking Netravati Peak',
+   'A complete guide to witnessing the legendary sea of clouds.',
+   'Adventure',
+   'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070',
+   true),
+  ('malnad-itinerary',
+   'The Ultimate 2-Day Itinerary',
+   'Experience the best of Kalasa, from ancient temples to sunset hills.',
+   'Travel',
+   'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071',
+   true)
+on conflict (slug) do update set
+  title = excluded.title,
+  subtitle = excluded.subtitle,
+  category = excluded.category,
+  image = excluded.image,
+  published = excluded.published;
+
 -- ─── SITE SETTINGS (upsert — safe if keys already exist) ────────────────────
 insert into site_settings (key, value) values
   ('hero_tagline',      'Luxury Nature Resort | Kalasa, Chikmagalur'),

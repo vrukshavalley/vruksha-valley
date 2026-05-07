@@ -38,8 +38,8 @@ export default async function AboutPage() {
   const whatsappNum = s.contact_whatsapp || '918217764481';
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=Hi%20Vruksha%20Valley%2C%20I'd%20like%20to%20plan%20my%20retreat.%20Please%20share%20more%20details%20about%20the%20cottages.`;
 
-  const p1 = s.about_paragraph_1 || 'Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.';
-  const p2 = s.about_paragraph_2 || "Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family's deep connection to this land.";
+  const p1 = 'Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.';
+  const p2 = "Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family's deep connection to this land.";
 
   return (
     <main className="bg-[#FDFBF7] min-h-screen">
