@@ -47,7 +47,7 @@ export default function AdminAmenities() {
       </div>
       {msg && <div className="mb-4 px-4 py-2 bg-green-50 text-green-700 text-sm rounded">{msg}</div>}
 
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         {items.map(item => <AmenityItem key={item.id} item={item} onSave={update} onDelete={remove} />)}
       </div>
 

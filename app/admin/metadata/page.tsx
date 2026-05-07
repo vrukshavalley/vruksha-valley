@@ -49,7 +49,7 @@ export default function AdminMetadata() {
         <p className="text-gray-400 text-sm mt-1">Edit title, description, and keywords for each page</p>
       </div>
 
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 flex-wrap">
         {PAGES.map(p => (
           <button key={p} onClick={() => setActive(p)}
             className={`px-4 py-2 rounded text-sm capitalize transition ${active === p ? 'bg-[#0A2F1F] text-white' : 'bg-white text-gray-600 hover:bg-gray-100 shadow-sm'}`}>

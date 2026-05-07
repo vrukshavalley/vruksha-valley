@@ -43,7 +43,7 @@ export default function NewBlogPost() {
       <form onSubmit={handleSave} className="space-y-6">
         <div className="bg-white rounded-lg shadow-sm p-6 space-y-5">
           <h3 className="font-semibold text-gray-700 border-b pb-3">Post Details</h3>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <Field label="Title" required><input required value={form.title} onChange={e => set('title', e.target.value)} className={inp} /></Field>
             <Field label="Slug (URL)" required><input required value={form.slug} onChange={e => set('slug', e.target.value)} placeholder="e.g. soormane-falls-guide" className={inp} /></Field>
             <Field label="Subtitle"><input value={form.subtitle} onChange={e => set('subtitle', e.target.value)} className={inp} /></Field>
@@ -52,7 +52,7 @@ export default function NewBlogPost() {
                 {['Travel', 'Nature', 'Adventure', 'Food', 'Culture'].map(c => <option key={c}>{c}</option>)}
               </select>
             </Field>
-            <Field label="Image URL" cls="col-span-2"><input value={form.image} onChange={e => set('image', e.target.value)} placeholder="https://..." className={inp} /></Field>
+            <Field label="Image URL" cls="sm:col-span-2"><input value={form.image} onChange={e => set('image', e.target.value)} placeholder="https://..." className={inp} /></Field>
           </div>
           <Field label="Content (separate paragraphs with blank lines)">
             <textarea value={form.content} onChange={e => set('content', e.target.value)} rows={12} className={inp + ' resize-none'} placeholder={"First paragraph...\n\nSecond paragraph...\n\nThird paragraph..."} />
@@ -71,7 +71,7 @@ export default function NewBlogPost() {
         </div>
 
         {msg && <p className="text-red-500 text-sm">{msg}</p>}
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <button type="submit" disabled={saving} className="px-8 py-3 bg-[#0A2F1F] text-white text-sm rounded hover:bg-[#0A2F1F]/80 transition disabled:opacity-50">
             {saving ? 'Saving...' : 'Save Post'}
           </button>

@@ -52,7 +52,7 @@ export default function AdminTestimonials() {
       <div className="bg-white rounded-lg shadow-sm p-6">
         <h3 className="font-semibold text-gray-700 mb-4">Add Testimonial</h3>
         <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div><label className={lbl}>Guest Name</label><input value={form.author} onChange={e => setForm(f => ({ ...f, author: e.target.value }))} className={inp} /></div>
             <div><label className={lbl}>Role / Location</label><input value={form.role} onChange={e => setForm(f => ({ ...f, role: e.target.value }))} placeholder="Nature Photographer" className={inp} /></div>
           </div>
@@ -72,7 +72,7 @@ function TestimonialItem({ item, onSave, onDelete }: { item: T; onSave: any; onD
   const [content, setContent] = useState(item.content)
   return (
     <div className="bg-white rounded-lg shadow-sm p-5 space-y-3">
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div><label className={lbl}>Name</label><input value={author} onChange={e => setAuthor(e.target.value)} className={inp} /></div>
         <div><label className={lbl}>Role</label><input value={role} onChange={e => setRole(e.target.value)} className={inp} /></div>
       </div>

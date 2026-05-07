@@ -1,12 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { ArrowLeft } from 'lucide-react'
 
 export default function EditBlogPost() {
-  const router = useRouter()
   const { id } = useParams()
   const [saving, setSaving] = useState(false)
   const [msg, setMsg] = useState('')
@@ -56,7 +55,7 @@ export default function EditBlogPost() {
       <form onSubmit={handleSave} className="space-y-6">
         <div className="bg-white rounded-lg shadow-sm p-6 space-y-5">
           <h3 className="font-semibold text-gray-700 border-b pb-3">Post Details</h3>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <Field label="Title"><input value={form.title} onChange={e => set('title', e.target.value)} className={inp} /></Field>
             <Field label="Slug"><input value={form.slug} onChange={e => set('slug', e.target.value)} className={inp} /></Field>
             <Field label="Subtitle"><input value={form.subtitle} onChange={e => set('subtitle', e.target.value)} className={inp} /></Field>
@@ -65,7 +64,7 @@ export default function EditBlogPost() {
                 {['Travel', 'Nature', 'Adventure', 'Food', 'Culture'].map(c => <option key={c}>{c}</option>)}
               </select>
             </Field>
-            <Field label="Image URL" cls="col-span-2"><input value={form.image} onChange={e => set('image', e.target.value)} className={inp} /></Field>
+            <Field label="Image URL" cls="sm:col-span-2"><input value={form.image} onChange={e => set('image', e.target.value)} className={inp} /></Field>
           </div>
           <Field label="Content (separate paragraphs with blank lines)">
             <textarea value={form.content} onChange={e => set('content', e.target.value)} rows={14} className={inp + ' resize-none'} />

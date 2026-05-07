@@ -52,7 +52,7 @@ export default function AdminCottages() {
       <div className="bg-white rounded-lg shadow-sm p-6">
         <h3 className="font-semibold text-gray-700 mb-4">Add Cottage</h3>
         <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div><label className={lbl}>Cottage Name</label><input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="Parijatha" className={inp} /></div>
             <div><label className={lbl}>Type / Category</label><input value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} placeholder="Signature Cottage" className={inp} /></div>
           </div>
@@ -72,7 +72,7 @@ function CottageItem({ item, onSave, onDelete }: { item: C; onSave: any; onDelet
   const [images, setImages] = useState((item.images || []).join(', '))
   return (
     <div className="bg-white rounded-lg shadow-sm p-5 space-y-3">
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div><label className={lbl}>Name</label><input value={name} onChange={e => setName(e.target.value)} className={inp} /></div>
         <div><label className={lbl}>Type</label><input value={type} onChange={e => setType(e.target.value)} className={inp} /></div>
       </div>
