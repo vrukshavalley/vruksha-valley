@@ -3,21 +3,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import {
-  LayoutDashboard, FileText, HelpCircle, MessageSquare,
-  Sparkles, Home, Search, Settings, LogOut, Images, Menu, X,
-} from 'lucide-react'
+import { Home, Info, FileText, Images, Phone, LogOut, Menu, X } from 'lucide-react'
 
 const nav = [
-  { label: 'Dashboard',    href: '/admin',             icon: LayoutDashboard },
-  { label: 'Blog Posts',   href: '/admin/blog',         icon: FileText },
-  { label: 'FAQ',          href: '/admin/faq',          icon: HelpCircle },
-  { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
-  { label: 'Amenities',    href: '/admin/amenities',    icon: Sparkles },
-  { label: 'Cottages',     href: '/admin/cottages',     icon: Home },
-  { label: 'Gallery',      href: '/admin/gallery',      icon: Images },
-  { label: 'Page SEO',     href: '/admin/metadata',     icon: Search },
-  { label: 'Settings',     href: '/admin/settings',     icon: Settings },
+  { label: 'Home',       href: '/admin/home',    icon: Home },
+  { label: 'About',      href: '/admin/about',   icon: Info },
+  { label: 'Journal',    href: '/admin/journal', icon: FileText },
+  { label: 'Gallery',    href: '/admin/gallery', icon: Images },
+  { label: 'Contact Us', href: '/admin/contact', icon: Phone },
 ]
 
 export default function Sidebar() {
@@ -34,7 +27,7 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* ── Mobile top bar ── */}
+      {/* Mobile top bar */}
       <div className="md:hidden fixed top-0 inset-x-0 h-14 z-50 bg-[#0A2F1F] px-4 flex items-center gap-3 shadow-lg">
         <button
           onClick={() => setOpen(v => !v)}
@@ -46,7 +39,7 @@ export default function Sidebar() {
         <span className="font-serif text-white text-base">Vruksha Valley Admin</span>
       </div>
 
-      {/* ── Mobile dimmed overlay ── */}
+      {/* Mobile overlay */}
       {open && (
         <div
           className="md:hidden fixed inset-0 z-30 bg-black/50"
@@ -54,29 +47,25 @@ export default function Sidebar() {
         />
       )}
 
-      {/* ── Sidebar (drawer on mobile, always-visible on desktop) ── */}
+      {/* Sidebar */}
       <aside
         className={[
           'fixed left-0 bottom-0 w-64 bg-[#0A2F1F] text-white flex flex-col',
-          'top-14 z-40',               // mobile: starts below the top bar
-          'md:top-0 md:z-50',          // desktop: starts at very top
+          'top-14 z-40',
+          'md:top-0 md:z-50',
           'transition-transform duration-300 ease-in-out',
           open ? 'translate-x-0' : '-translate-x-full',
           'md:translate-x-0',
         ].join(' ')}
       >
-        {/* Desktop-only branding header */}
         <div className="hidden md:flex flex-col px-6 py-6 border-b border-white/10 shrink-0">
           <h1 className="font-serif text-xl">Vruksha Valley</h1>
           <p className="text-[10px] uppercase tracking-widest text-white/40 mt-1">Admin Panel</p>
         </div>
 
-        {/* Nav links */}
         <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
           {nav.map(({ label, href, icon: Icon }) => {
-            const active = href === '/admin'
-              ? pathname === '/admin'
-              : pathname.startsWith(href)
+            const active = pathname === href || pathname.startsWith(href + '/')
             return (
               <Link
                 key={href}
@@ -96,7 +85,6 @@ export default function Sidebar() {
           })}
         </nav>
 
-        {/* Sign out */}
         <div className="px-3 py-4 border-t border-white/10 shrink-0">
           <button
             onClick={handleLogout}

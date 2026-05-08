@@ -47,6 +47,7 @@ export default async function Home() {
   const s: Record<string, string> = {};
   (settings || []).forEach(r => { s[r.key] = r.value || ''; });
 
+  const heroImage   = s.hero_image   || '/hero.webp';
   const heroTagline = s.hero_tagline || 'Luxury Nature Resort | Kalasa, Chikmagalur';
   const heroHeading = s.hero_heading || 'A place to pause and remember what matters the most.';
   const aboutLabel = s.about_label || 'Our Story';
@@ -75,7 +76,7 @@ export default async function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <Image
-            src="/hero.webp"
+            src={heroImage}
             alt="Aerial view of Vruksha Valley Resort in Kalasa"
             fill
             priority

@@ -132,6 +132,7 @@ on conflict (slug) do update set
 
 -- ─── SITE SETTINGS (upsert — safe if keys already exist) ────────────────────
 insert into site_settings (key, value) values
+  ('hero_image',        '/hero.webp'),
   ('hero_tagline',      'Luxury Nature Resort | Kalasa, Chikmagalur'),
   ('hero_heading',      'A place to pause and remember what matters the most.'),
   ('about_label',       'Our Story'),
@@ -147,7 +148,21 @@ insert into site_settings (key, value) values
   ('social_instagram',  'https://www.instagram.com/vrukshavalley/'),
   ('social_youtube',    'https://youtube.com/@vrukshavalley'),
   ('social_facebook',   'https://facebook.com'),
-  ('footer_tagline',    'A place to pause and remember what matters the most.')
+  ('footer_tagline',    'A place to pause and remember what matters the most.'),
+  ('about_page_hero_img',        'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070'),
+  ('about_page_hero_h1',         'Our Story'),
+  ('about_page_rooted_label',    'Rooted in Nature'),
+  ('about_page_section_heading', 'Where the misty mountains of Kalasa meet the warmth of Malnad hospitality.'),
+  ('about_page_p1',              'Vruksha Valley was established with a singular vision: to preserve the quiet dignity of the Western Ghats while offering a sanctuary for those seeking a pause from the modern world.'),
+  ('about_page_p2',              'Our estate is more than just a resort; it is a working coffee plantation where every trail, every tree, and every sunrise tells the story of our family''s deep connection to this land.'),
+  ('about_page_side_img',        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071'),
+  ('about_page_sustain_h',       'Sustainable Luxury.'),
+  ('about_page_sustain_desc',    'We believe in "Low Impact, High Experience." From our signature A-Frame cottages designed to blend into the canopy to our farm-to-table dining, every detail at Vruksha Valley is crafted to honor the environment.'),
+  ('about_page_bullet_1',        '800m from the majestic Soormane Falls.'),
+  ('about_page_bullet_2',        'Gateway to Netravati Peak, Maidadi, Horanadu Annapoorneshwari Temple, Kudremukh & Kyatanamakki.'),
+  ('about_page_bullet_3',        'Authentic Malnad Cuisine & Coffee Estate tours.'),
+  ('about_page_cta_h',           'Experience the Silence.'),
+  ('about_page_cta_sub',         'Your journey into the heart of the Western Ghats begins here.')
 on conflict (key) do update set value = excluded.value, updated_at = now();
 
 -- ─── GALLERY CATEGORIES ─────────────────────────────────────────────────────
