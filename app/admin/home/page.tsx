@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Save, Plus, Trash2, ChevronDown } from 'lucide-react'
+import ImageUpload from '../_components/ImageUpload'
 
 type Cottage     = { id: string; name: string; type: string; images: string[]; order_index: number }
 type Amenity     = { id: string; icon: string; title: string; description: string; order_index: number }
@@ -45,7 +46,13 @@ function CottageItem({ item, onSave, onDelete }: { item: Cottage; onSave: (id: s
         <div><label className={lbl}>Name</label><input value={name} onChange={e => setName(e.target.value)} className={inp} /></div>
         <div><label className={lbl}>Type</label><input value={type} onChange={e => setType(e.target.value)} className={inp} /></div>
       </div>
-      <div><label className={lbl}>Image Paths (comma-separated)</label><textarea value={imgs} onChange={e => setImgs(e.target.value)} rows={2} className={inp + ' resize-none'} /></div>
+      <div>
+        <label className={lbl}>Image Paths (comma-separated)</label>
+        <textarea value={imgs} onChange={e => setImgs(e.target.value)} rows={2} className={inp + ' resize-none'} />
+        <div className="mt-1.5">
+          <ImageUpload folder="cottages" onUpload={url => setImgs(prev => prev.trim() ? prev.trim() + ', ' + url : url)} />
+        </div>
+      </div>
       <div className="flex gap-2">
         <button onClick={() => onSave(item.id, name, type, imgs)} className="flex items-center gap-1.5 px-3 py-2 bg-[#0A2F1F] text-white text-xs rounded"><Save size={12} /> Save</button>
         <button onClick={() => onDelete(item.id)} className="flex items-center gap-1.5 px-3 py-2 bg-red-50 text-red-600 text-xs rounded"><Trash2 size={12} /> Delete</button>
@@ -222,7 +229,10 @@ export default function AdminHome() {
       <AccordionSection title="1. Hero" sub="Full-screen image and headline at the very top" defaultOpen>
         <div>
           <label className={lbl}>Hero Image (path or URL)</label>
-          <input value={s.hero_image || ''} onChange={e => set('hero_image', e.target.value)} placeholder="/hero.webp" className={inp} />
+          <div className="flex gap-2 items-center">
+            <input value={s.hero_image || ''} onChange={e => set('hero_image', e.target.value)} placeholder="/hero.webp" className={inp} />
+            <ImageUpload folder="hero" onUpload={url => set('hero_image', url)} />
+          </div>
           <ImgPreview src={s.hero_image || '/hero.webp'} />
         </div>
         <div><label className={lbl}>Tagline (small text above heading)</label><input value={s.hero_tagline || ''} onChange={e => set('hero_tagline', e.target.value)} className={inp} /></div>
@@ -254,7 +264,13 @@ export default function AdminHome() {
             <div><label className={lbl}>Name</label><input value={newCottage.name} onChange={e => setNewCottage(f => ({ ...f, name: e.target.value }))} placeholder="Parijatha" className={inp} /></div>
             <div><label className={lbl}>Type</label><input value={newCottage.type} onChange={e => setNewCottage(f => ({ ...f, type: e.target.value }))} placeholder="Signature Cottage" className={inp} /></div>
           </div>
-          <div><label className={lbl}>Image Paths (comma-separated)</label><textarea value={newCottage.images} onChange={e => setNewCottage(f => ({ ...f, images: e.target.value }))} rows={2} className={inp + ' resize-none'} placeholder="/rooms/vruksha-parijatha/1.webp, ..." /></div>
+          <div>
+            <label className={lbl}>Image Paths (comma-separated)</label>
+            <textarea value={newCottage.images} onChange={e => setNewCottage(f => ({ ...f, images: e.target.value }))} rows={2} className={inp + ' resize-none'} placeholder="/rooms/vruksha-parijatha/1.webp, ..." />
+            <div className="mt-1.5">
+              <ImageUpload folder="cottages" onUpload={url => setNewCottage(f => ({ ...f, images: f.images.trim() ? f.images.trim() + ', ' + url : url }))} />
+            </div>
+          </div>
           <button onClick={addCottage} className="flex items-center gap-2 px-4 py-2 bg-[#0A2F1F] text-white text-sm rounded"><Plus size={14} /> Add Room</button>
         </div>
       </AccordionSection>

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Save, ChevronDown } from 'lucide-react'
+import ImageUpload from '../_components/ImageUpload'
 
 const inp = 'w-full border border-gray-200 rounded px-3 py-2.5 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition'
 const lbl = 'block text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5'
@@ -60,7 +61,10 @@ export default function AdminAbout() {
       <AccordionSection title="1. Hero" sub="Full-screen banner image and 'Our Story' heading" defaultOpen>
         <div>
           <label className={lbl}>Hero Image URL</label>
-          <input value={s.about_page_hero_img || ''} onChange={e => set('about_page_hero_img', e.target.value)} placeholder="https://images.unsplash.com/..." className={inp} />
+          <div className="flex gap-2 items-center">
+            <input value={s.about_page_hero_img || ''} onChange={e => set('about_page_hero_img', e.target.value)} placeholder="https://images.unsplash.com/..." className={inp} />
+            <ImageUpload folder="about" onUpload={url => set('about_page_hero_img', url)} />
+          </div>
           <ImgPreview src={s.about_page_hero_img || 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=400'} />
         </div>
         <div><label className={lbl}>Hero Heading (e.g. Our Story)</label><input value={s.about_page_hero_h1 || ''} onChange={e => set('about_page_hero_h1', e.target.value)} placeholder="Our Story" className={inp} /></div>
@@ -80,7 +84,10 @@ export default function AdminAbout() {
       <AccordionSection title="3. Sustainable Luxury" sub="Side image, heading, description and 3 bullet points">
         <div>
           <label className={lbl}>Side Image URL</label>
-          <input value={s.about_page_side_img || ''} onChange={e => set('about_page_side_img', e.target.value)} placeholder="https://images.unsplash.com/..." className={inp} />
+          <div className="flex gap-2 items-center">
+            <input value={s.about_page_side_img || ''} onChange={e => set('about_page_side_img', e.target.value)} placeholder="https://images.unsplash.com/..." className={inp} />
+            <ImageUpload folder="about" onUpload={url => set('about_page_side_img', url)} />
+          </div>
           <ImgPreview src={s.about_page_side_img || 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400'} />
         </div>
         <div><label className={lbl}>Heading (e.g. Sustainable Luxury.)</label><input value={s.about_page_sustain_h || ''} onChange={e => set('about_page_sustain_h', e.target.value)} placeholder="Sustainable Luxury." className={inp} /></div>

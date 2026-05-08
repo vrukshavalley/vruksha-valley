@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { ArrowLeft, Save } from 'lucide-react'
+import ImageUpload from '../../_components/ImageUpload'
 
 const inp = 'w-full border border-gray-200 rounded px-3 py-2.5 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition'
 
@@ -80,7 +81,10 @@ export default function EditJournalPost() {
             </Field>
           </div>
           <Field label="Cover Image URL">
-            <input value={form.image} onChange={e => set('image', e.target.value)} className={inp} />
+            <div className="flex gap-2 items-center">
+              <input value={form.image} onChange={e => set('image', e.target.value)} className={inp} />
+              <ImageUpload folder="blog" onUpload={url => set('image', url)} />
+            </div>
             <ImgPreview src={form.image} />
           </Field>
           <Field label="Content (separate paragraphs with a blank line)">

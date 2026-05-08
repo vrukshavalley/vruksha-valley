@@ -1,5 +1,23 @@
 -- Run this in Supabase SQL Editor (safe to run multiple times)
 
+-- ─── STORAGE BUCKET ──────────────────────────────────────────────────────────
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('media', 'media', true, 10485760, array['image/jpeg','image/png','image/webp','image/gif','image/avif'])
+on conflict (id) do nothing;
+
+do $$ begin
+  create policy "Public read media" on storage.objects for select using (bucket_id = 'media');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create policy "Auth upload media" on storage.objects for insert with check (bucket_id = 'media' and auth.role() = 'authenticated');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create policy "Auth update media" on storage.objects for update using (bucket_id = 'media' and auth.role() = 'authenticated');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create policy "Auth delete media" on storage.objects for delete using (bucket_id = 'media' and auth.role() = 'authenticated');
+exception when duplicate_object then null; end $$;
+
 -- ─── CREATE gallery_categories TABLE IF MISSING ──────────────────────────────
 create table if not exists gallery_categories (
   id uuid default gen_random_uuid() primary key,

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Plus, Save, Trash2 } from 'lucide-react'
+import ImageUpload from '../_components/ImageUpload'
 
 const inp = 'w-full border border-gray-200 rounded px-3 py-2.5 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition'
 const lbl = 'block text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5'
@@ -115,6 +116,15 @@ export default function AdminGallery() {
                       className={inp + ' resize-none font-mono text-xs'}
                       placeholder={'/gallery/cottage/image-1.webp\n/gallery/cottage/image-2.webp'}
                     />
+                    <div className="mt-1.5">
+                      <ImageUpload
+                        folder="gallery"
+                        onUpload={url => {
+                          const cur = forms[cat.id]?.images || ''
+                          setField(cat.id, 'images', cur.trim() ? cur.trim() + '\n' + url : url)
+                        }}
+                      />
+                    </div>
                   </div>
                   {forms[cat.id].images.trim() && (
                     <div className="flex gap-2 flex-wrap">
