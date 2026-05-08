@@ -87,5 +87,5 @@ function AmenityItem({ item, onSave, onDelete }: { item: A; onSave: any; onDelet
   )
 }
 
-const inp = "w-full border border-gray-200 rounded px-3 py-2.5 text-sm outline-none focus:border-[#0A2F1F] transition"
+const inp = "w-full border border-gray-200 rounded px-3 py-2.5 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition"
 const lbl = "block text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5"

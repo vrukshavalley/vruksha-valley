@@ -37,7 +37,7 @@ export default function AdminLogin() {
             <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Email</label>
             <input
               type="email" required value={email} onChange={e => setEmail(e.target.value)}
-              className="w-full border border-gray-200 rounded px-4 py-3 text-sm outline-none focus:border-[#0A2F1F] transition"
+              className="w-full border border-gray-200 rounded px-4 py-3 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition"
               placeholder="admin@vrukshavalley.com"
             />
           </div>
@@ -45,7 +45,7 @@ export default function AdminLogin() {
             <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Password</label>
             <input
               type="password" required value={password} onChange={e => setPassword(e.target.value)}
-              className="w-full border border-gray-200 rounded px-4 py-3 text-sm outline-none focus:border-[#0A2F1F] transition"
+              className="w-full border border-gray-200 rounded px-4 py-3 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition"
               placeholder="••••••••"
             />
           </div>

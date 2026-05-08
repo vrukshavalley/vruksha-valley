@@ -82,7 +82,7 @@ export default function NewBlogPost() {
   )
 }
 
-const inp = "w-full border border-gray-200 rounded px-3 py-2.5 text-sm outline-none focus:border-[#0A2F1F] transition"
+const inp = "w-full border border-gray-200 rounded px-3 py-2.5 text-sm text-gray-900 bg-white outline-none focus:border-[#0A2F1F] transition"
 function Field({ label, children, cls = '', required = false }: any) {
   return (
     <div className={cls}>
