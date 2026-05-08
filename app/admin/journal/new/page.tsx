@@ -85,14 +85,7 @@ export default function NewJournalPost() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-5 space-y-5">
-          <h3 className="font-semibold text-gray-700 border-b pb-3">SEO</h3>
-          <Field label="SEO Title"><input value={form.seo_title} onChange={e => set('seo_title', e.target.value)} className={inp} /></Field>
-          <Field label="SEO Description"><textarea value={form.seo_description} onChange={e => set('seo_description', e.target.value)} rows={3} className={inp + ' resize-none'} /></Field>
-          <Field label="Keywords (comma-separated)"><input value={form.seo_keywords} onChange={e => set('seo_keywords', e.target.value)} placeholder="Kalasa trek, Western Ghats guide..." className={inp} /></Field>
-        </div>
-
-        {msg && <p className="text-red-500 text-sm">{msg}</p>}
+{msg && <p className="text-red-500 text-sm">{msg}</p>}
         <div className="flex flex-wrap gap-4">
           <button type="submit" disabled={saving} className="flex items-center gap-2 px-6 py-3 bg-[#0A2F1F] text-white text-sm rounded disabled:opacity-50">
             <Save size={15} /> {saving ? 'Saving...' : 'Save Post'}
