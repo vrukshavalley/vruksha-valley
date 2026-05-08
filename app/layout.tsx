@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -55,7 +56,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers()
+  const pathname = headersList.get('x-invoke-path') || ''
+  const isAdmin = pathname.startsWith('/admin')
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Resort",
@@ -121,11 +125,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Navbar />
-        <main className="min-h-screen w-full">
-          {children}
-        </main>
-        <Footer />
+        {!isAdmin && <Navbar />}
+        {isAdmin ? children : <main className="min-h-screen w-full">{children}</main>}
+        {!isAdmin && <Footer />}
       </body>
     </html>
   );
